@@ -31,3 +31,4 @@ vncstop
 sleep 4
 wget -O $(find /root/.mozilla/firefox -name *.default-esr)/user.js https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Configures/user.js
 rm -rf xfce.sh 
+
