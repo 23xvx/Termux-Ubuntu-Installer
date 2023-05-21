@@ -172,7 +172,7 @@ fi
 if [[ "$desktop" =~ ^([1])$ ]]; then 
     echo ${G}"Installing XFCE Desktop..."${W}
     cat > $PD/$ds_name/root/.bashrc <<- EOF
-    wget http://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/xfce.sh
+    wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/xfce.sh
     bash xfce.sh 
     exit
     echo
@@ -184,7 +184,7 @@ elif [[ "$desktop" =~ ^([2])$ ]]; then
     clear 
     echo ${G}"Installing GNOME Desktop..."${W}
     cat > $PD/$ds_name/root/.bashrc <<- EOF
-    wget http://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/gnome.sh
+    wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/gnome.sh
     bash gnome.sh 
     exit
     echo
@@ -196,7 +196,7 @@ elif [[ "$desktop" =~ ^([3])$ ]]; then
     clear 
     echo ${G}"Installing GNOME Desktop..."${W}
     cat > $PD/$ds_name/root/.bashrc <<- EOF
-    wget http://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/mate.sh
+    wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/mate.sh
     bash mate.sh 
     exit
     echo
