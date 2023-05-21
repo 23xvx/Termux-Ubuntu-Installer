@@ -1,26 +1,26 @@
 #!/bin/bash
-apt-get update 
-apt-get install xfce4 xfce4-terminal dbus-x11 tigervnc-standalone-server -y
-echo "vncserver -geometry -xstartup /usr/bin/startxfce4" >> /usr/local/bin/vncstart
+sudo apt-get update 
+sudo apt-get install xfce4 xfce4-terminal dbus-x11 tigervnc-standalone-server -y
+sudo apt-get install yaru-theme-gtk yaru-theme-icon ubuntu-wallpapers ubuntu-wallpapers-jammy -y 
+echo "vncserver -xstartup /usr/bin/startxfce4" >> /usr/local/bin/vncstart
 echo "vncserver -kill :* ; rm -rf /tmp/.X1-lock ; rm -rf /tmp/.X11-unix/X1" >> /usr/local/bin/vncstop
 chmod +x /usr/local/bin/vncstart 
 chmod +x /usr/local/bin/vncstop 
 sleep 2
-echo "deb http://ftp.debian.org/debian stable main contrib non-free" >> /etc/apt/sources.list
-apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv-keys 648ACFD622F3D138
-apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9
-apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv-keys 605C66F00D6C9793
-apt update
-apt install firefox-esr -y 
-clear 
 echo "Please enter your vnc password"
-vncstart 
-sleep 4
-DISPLAY=:1 firefox &
-sleep 10
-pkill -f firefox
-vncstop
-sleep 4
-wget -O $(find /root/.mozilla/firefox -name *.default-esr)/user.js https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Configures/user.js
+vncstart
+dbus-launch xfconf-query -c xfce4-desktop -np '/desktop-icons/style' -t 'int' -s '0'
+sleep 5
+dbus-launch xfconf-query -c xsettings -p /Net/ThemeName -s "Yaru-dark"
+sleep 5
+dbus-launch xfconf-query -c xfwm4 -p /general/theme -s "Yaru-dark"
+sleep 5
+dbus-launch xfconf-query -c xsettings -p /Net/IconThemeName -s  "Yaru-dark"
+sleep 5
+dbus-launch xfconf-query -c xsettings -p /Gtk/CursorThemeName -s "Yaru-dark"
+sleep 5
+dbus-launch xfconf-query -c xfce4-desktop -p $(dbus-launch xfconf-query -c xfce4-desktop -l | grep last-image) -s /usr/share/backgrounds/warty-final-ubuntu.png
+sleep 5
+vncstop 
 rm -rf xfce.sh 
 
