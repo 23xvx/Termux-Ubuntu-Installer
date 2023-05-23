@@ -75,6 +75,8 @@ if [ ! -f $tarball ]; then
     esac
     echo ${G}"Downloading rootfs"${W}
     wget "https://cloud-images.ubuntu.com/releases/23.04/release/ubuntu-23.04-server-cloudimg-${archurl}-root.tar.xz" -O $tarball
+else 
+    echo ${G}"Existing file found, skip downloading..."
 fi 
 sleep 1
 clear 
