@@ -100,11 +100,8 @@ rm -rf /var/lib/dpkg/info/udisks2.postinst
 echo "" >> /var/lib/dpkg/info/udisks2.postinst
 dpkg --configure -a
 apt-mark hold udisks2
-#Installing Desktop 
-if [[ "$desktop" =~ ^([1])$ ]]; then 
-sleep 1
-clear 
-EOF
+exit
+echo 
 proot-distro login ubuntu 
 rm -rf $PD/$ds_name/root/.bashrc
 
