@@ -38,12 +38,14 @@ then
     echo ${W}"Deleting existing directory...."${W}
     proot-distro remove ubuntu 
     clear
+    mkdir -p $PD/ubuntu 
 elif [[ "$ans" =~ ^([nN])$ ]]
 then
     echo ${R}"Sorry, but we cannot complete the installation"
     exit 1
 else 
     echo
+    mkdir $PD/ubuntu 
     clear
 fi
 
