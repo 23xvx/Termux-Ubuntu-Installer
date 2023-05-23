@@ -212,7 +212,7 @@ fi
 
 #Installing Browser 
 echo ${G}"Installing Browser...." ${W}
-cat > $PD/$ds_name/root/.bashrc <<- EOF
+cat > $directory/.bashrc <<- EOF
 echo "deb http://ftp.debian.org/debian stable main contrib non-free" >> /etc/apt/sources.list
 apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv-keys 648ACFD622F3D138
 apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9
