@@ -123,7 +123,7 @@ if [[ "$user" =~ ^([yY])$ ]]; then
         read password
         echo "Adding a user...."
         cat > $PD/$ds_name/root/.bashrc <<- EOF
-        useradd -m -p "$(openssl passwd -1 ${password})" -G sudo \
+        useradd -m -p '$(openssl passwd -1 ${password})' -G sudo \
             -d /home/${username} \
             -k /etc/skel \
             -s /bin/bash \
