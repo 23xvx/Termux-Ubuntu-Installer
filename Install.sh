@@ -72,7 +72,7 @@ if [ ! -f $tarball ]; then
             echo "unknown architecture"; exit 1 ;;
     esac
     echo ${G}"Downloading rootfs"${W}
-    wget "https://cloud-images.ubuntu.com/releases/23.04/release/ubuntu-23.04-server-cloudimg-${archutl}-root.tar.xz" -O $tarball
+    wget "https://cloud-images.ubuntu.com/releases/23.04/release/ubuntu-23.04-server-cloudimg-${archurl}-root.tar.xz" -O $tarball
 fi 
 echo ${G}"Decompressing rootfs"
 proot --link2symlink  \
