@@ -173,7 +173,7 @@ fi
 #Installing Desktop 
 if [[ "$desktop" =~ ^([1])$ ]]; then 
     echo ${G}"Installing XFCE Desktop..."${W}
-    cat > $PD/$ds_name/root/.bashrc <<- EOF
+    cat > $directory/.bashrc <<- EOF
     wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/xfce.sh
     bash xfce.sh 
     exit
@@ -185,7 +185,7 @@ elif [[ "$desktop" =~ ^([2])$ ]]; then
     sleep 1
     clear 
     echo ${G}"Installing GNOME Desktop..."${W}
-    cat > $PD/$ds_name/root/.bashrc <<- EOF
+    cat > $directory/.bashrc <<- EOF
     wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/gnome.sh
     bash gnome.sh 
     exit
@@ -197,7 +197,7 @@ elif [[ "$desktop" =~ ^([3])$ ]]; then
     sleep 1
     clear 
     echo ${G}"Installing GNOME Desktop..."${W}
-    cat > $PD/$ds_name/root/.bashrc <<- EOF
+    cat > $directory/.bashrc <<- EOF
     wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/mate.sh
     bash mate.sh 
     exit
@@ -211,6 +211,7 @@ fi
 
 
 #Installing Browser 
+echo ${G}"Installing Browser...." ${W}
 cat > $PD/$ds_name/root/.bashrc <<- EOF
 echo "deb http://ftp.debian.org/debian stable main contrib non-free" >> /etc/apt/sources.list
 apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv-keys 648ACFD622F3D138
