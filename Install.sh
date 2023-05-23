@@ -102,6 +102,7 @@ dpkg --configure -a
 apt-mark hold udisks2
 exit
 echo 
+EOF
 proot-distro login ubuntu 
 rm -rf $PD/$ds_name/root/.bashrc
 
