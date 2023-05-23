@@ -6,5 +6,5 @@
 
 
 ### Known bugs :
-cannot add a user with password
-cannot apply xfce theme 
+1) cannot add a user with password
+2) cannot apply xfce theme 
