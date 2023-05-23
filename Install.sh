@@ -74,6 +74,8 @@ if [ ! -f $tarball ]; then
     echo ${G}"Downloading rootfs"${W}
     wget "https://cloud-images.ubuntu.com/releases/23.04/release/ubuntu-23.04-server-cloudimg-${archurl}-root.tar.xz" -O $tarball
 fi 
+sleep 1
+clear 
 echo ${G}"Decompressing rootfs"
 proot --link2symlink  \
     tar --warning=no-unknown-keyword \
