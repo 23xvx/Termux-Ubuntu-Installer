@@ -82,7 +82,7 @@ echo ${G}"Decompressing rootfs"
 proot --link2symlink  \
     tar --warning=no-unknown-keyword \
         --delay-directory-restore --preserve-permissions \
-        -xpf ~/$tarball -C $PD/$ds_name/ --exclude='dev'||:
+        -xpf ~/$tarball -C $PD/$ds_name --exclude='dev'||:
 if [[ ! -d "$PD/$ds_name/bin" ]]; then
     mv $PD/$ds_name/*/* $PD/$ds_name/
 fi
