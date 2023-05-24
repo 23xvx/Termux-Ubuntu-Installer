@@ -9,7 +9,11 @@ chmod +x /usr/local/bin/vncstop
 sleep 2
 echo "Please enter your vnc password"
 vncstart
-sleep 2 
+sleep 4
+vncstop 
+sleep 2
+vncstart 
+sleep 4
 dbus-launch dconf write /org/mate/desktop/interface/gtk-theme "'Yaru-MATE-dark'"
 sleep 2
 dbus-launch dconf write /org/mate/marco/general/theme "'Yaru-MATE-dark'"

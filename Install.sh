@@ -107,6 +107,7 @@ proot-distro login ubuntu
 rm -rf $PD/$ds_name/root/.bashrc
 
 #Adding an user?
+clear 
 echo ${G}"Do you want to add a user (y/n)"
 echo ${Y}"If you are going to install MATE Desktop, it is strongly reccommended to add a user "
 echo "Because mate-menu crashes in root!"
@@ -171,7 +172,7 @@ fi
 #Installing Desktop 
 if [[ "$desktop" =~ ^([1])$ ]]; then 
     echo ${G}"Installing XFCE Desktop..."${W}
-    cp $directory/.bashrc $directory/.bak 
+    mv $directory/.bashrc $directory/.bak 
     cat > $directory/.bashrc <<- EOF
     wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/xfce.sh
     bash xfce.sh 
@@ -184,7 +185,7 @@ elif [[ "$desktop" =~ ^([2])$ ]]; then
     sleep 1
     clear 
     echo ${G}"Installing GNOME Desktop..."${W}
-    cp $directory/.bashrc $directory/.bak 
+    mv $directory/.bashrc $directory/.bak 
     cat > $directory/.bashrc <<- EOF
     wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/gnome.sh
     bash gnome.sh 
@@ -194,7 +195,7 @@ EOF
     exec $login
     rm -rf $directory/.bashrc
 elif [[ "$desktop" =~ ^([3])$ ]]; then 
-    cp $directory/.bashrc $directory/.bak 
+    mv $directory/.bashrc $directory/.bak 
     sleep 1
     clear 
     echo ${G}"Installing GNOME Desktop..."${W}
