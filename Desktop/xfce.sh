@@ -9,6 +9,8 @@ chmod +x /usr/local/bin/vncstop
 sleep 2
 echo "Please enter your vnc password"
 vncstart
+sleep 5 
+vncstop 
 dbus-launch xfconf-query -c xfce4-desktop -np '/desktop-icons/style' -t 'int' -s '0'
 sleep 5
 dbus-launch xfconf-query -c xsettings -p /Net/ThemeName -s "Yaru-dark"
