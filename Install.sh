@@ -218,7 +218,7 @@ EOF
 exec $login 
 wget -O $(find $directory/.mozilla/firefox -name *.default-esr)/user.js https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Configures/user.js
 rm -rf $directory/.bashrc
-mv cp $directory/.bak $directory/.bashrc 
+mv $directory/.bak $directory/.bashrc 
 
 #Fixing sound 
 echo "export PULSE_SERVER=127.0.0.1" >> $directory/.bashrc

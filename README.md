@@ -7,4 +7,7 @@
 
 ### Known bugs :
 1) cannot add a user with password
-2) cannot apply xfce theme 
+
+### To Do : 
+1) Adding more desktops 
+2) Installing more applications (VS code, Discord, etc.)
