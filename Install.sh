@@ -119,47 +119,23 @@ if [[ "$user" =~ ^([yY])$ ]]; then
     read username 
     directory=$PD/$ds_name/home/$username
     login="proot-distro login ubuntu --user $username" 
-    echo ${G}"Do you want to set a password for your user (y/n)?"
-    read pswd
-    if [[ "$pswd" =~ ^([yY])$ ]]; then
-        echo ${G}"Please type in a password for user"
-        read password
-        echo "Adding a user...."
-        cat > $PD/$ds_name/root/.bashrc <<- EOF
-        useradd -m -p ${openssl passwd -1 ${password}} -G sudo \
-            -d /home/${username} \
-            -k /etc/skel \
-            -s /bin/bash \
-            $username
-        echo $username ALL=\(root\) ALL > /etc/sudoers.d/$username
-        chmod 0440 /etc/sudoers.d/$username
-        exit
-        echo
+    sleep 1
+    echo ${G}"Adding a user ...."
+    cat > $PD/$ds_name/root/.bashrc <<- EOF
+    useradd -m \
+        -G sudo \
+        -d /home/${username} \
+        -k /etc/skel \
+        -s /bin/bash \
+        $username
+    echo $username ALL=\(root\) ALL > /etc/sudoers.d/$username
+    chmod 0440 /etc/sudoers.d/$username
+    echo "$username ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers    
+    exit
+    echo
 EOF
     proot-distro login ubuntu 
     rm -rf $PD/$ds_name/root/.bashrc
-    elif [[ "$pswd" =~ ^([nN])$ ]]; then
-        sleep 1
-        echo ${G}"Adding a user ...."
-        cat > $PD/$ds_name/root/.bashrc <<- EOF
-        useradd -m \
-            -G sudo \
-            -d /home/${username} \
-            -k /etc/skel \
-            -s /bin/bash \
-            $username
-        echo $username ALL=\(root\) ALL > /etc/sudoers.d/$username
-        chmod 0440 /etc/sudoers.d/$username
-        echo "$username ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers    
-        exit
-        echo
-EOF
-    proot-distro login ubuntu 
-    rm -rf $PD/$ds_name/root/.bashrc
-    else 
-        echo ${R}"Cannot identify your answer"
-        exit 1
-    fi 
 elif [[ "$user" =~ ^([nN])$ ]]; then
     echo ${G}"The installation will be completed as root"
     sleep 2

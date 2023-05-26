@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo apt-get update 
 sudo apt-get install mate-desktop-environment mate-terminal mate-tweak -y
-sudo apt-get install yaru-theme-gtk yaru-theme-icon ubuntu-wallpapers dconf-cli -y 
+sudo apt-get install yaru-theme-gtk yaru-theme-icon tigervnc-standalone-server ubuntu-wallpapers dconf-cli -y 
 echo "vncserver -xstartup /usr/bin/mate-session" >> /usr/local/bin/vncstart
 echo "vncserver -kill :* ; rm -rf /tmp/.X1-lock ; rm -rf /tmp/.X11-unix/X1" >> /usr/local/bin/vncstop
 chmod +x /usr/local/bin/vncstart 
