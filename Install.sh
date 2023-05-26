@@ -215,7 +215,7 @@ sleep 2
 exit 
 echo 
 EOF
-exec $login 
+$login 
 wget -O $(find $directory/.mozilla/firefox -name *.default-esr)/user.js https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Configures/user.js
 rm -rf $directory/.bashrc
 mv $directory/.bak $directory/.bashrc 
