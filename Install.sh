@@ -14,7 +14,7 @@ C="$(printf '\033[1;36m')"
 clear
 
 #Notice 
-echo ${G} "This is script will install ubuntu 23.04 (lunar) in proot-distro"
+echo ${G}"This is script will install ubuntu 23.04 (lunar) in proot-distro"
 sleep 2
 clear 
 
