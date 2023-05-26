@@ -1,13 +1,14 @@
 #!/bin/bash
 apt-get update
-sudo apt install xfce4 tigervnc-standalone-server dbus-x11 dbus -y --no-install-recommends
+sudo apt install xfce4 dbus-x11 dbus -y --no-install-recommends
+sudo apt install tigervnc-standalone-server -y 
 echo "Please enter your vnc password"
 vncserver 
 sleep 4
 vncserver -kill :1
 mkdir $HOME/.vnc
 sudo apt install gnome-shell gnome-shell-extension-ubuntu-dock gnome-shell-extensions gnome-terminal -y
-sudo apt install yaru-theme-gtk yaru-theme-icon gnome-tweaks dbus-x11 tigervnc-standalone-server -y
+sudo apt install yaru-theme-gtk yaru-theme-icon gnome-tweaks dbus-x11 -y
 mkdir $HOME/.vnc
 echo "
 #!/bin/bash
