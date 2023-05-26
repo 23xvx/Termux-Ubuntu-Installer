@@ -7,13 +7,13 @@ sleep 4
 vncserver -kill :1
 mkdir $HOME/.vnc
 sudo apt install gnome-shell gnome-shell-extension-ubuntu-dock gnome-shell-extensions gnome-terminal -y
-sudo apt install yaru-theme-gtk yaru-theme-icon gnome-tweaks dbus-x11 -y
+sudo apt install yaru-theme-gtk yaru-theme-icon gnome-tweaks dbus-x11 tigervnc-standalone-server -y
 mkdir $HOME/.vnc
 echo "
 #!/bin/bash
 export XDG_CURRENT_DESKTOP="GNOME"
 service dbus start
-gnome-shell --x11 " >> /root/.vnc/xstartup
+gnome-shell --x11 " >> $HOME/.vnc/xstartup
 echo "vncserver " >> /usr/local/bin/vncstart
 echo "vncserver -kill :* ; rm -rf /tmp/.X1-lock ; rm -rf /tmp/.X11-unix/X1" >> /usr/local/bin/vncstop
 chmod +x /root/.vnc/xstartup

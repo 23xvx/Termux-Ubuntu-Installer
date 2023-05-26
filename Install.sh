@@ -196,6 +196,7 @@ fi
 
 
 #Installing Browser 
+if [[ "$desktop" =~ ^([1])$ ]] || [[ "$desktop" =~ ^([2])$ ]] || [[ "$desktop" =~ ^([3])$ ]]; then 
 echo ${G}"Installing Browser...." ${W}
 cat > $directory/.bashrc <<- EOF
 echo "deb http://ftp.debian.org/debian stable main contrib non-free" >> /etc/apt/sources.list
@@ -219,6 +220,7 @@ $login
 wget -O $(find $directory/.mozilla/firefox -name *.default-esr)/user.js https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Configures/user.js
 rm -rf $directory/.bashrc
 mv $directory/.bak $directory/.bashrc 
+fi 
 
 #Fixing sound 
 echo "export PULSE_SERVER=127.0.0.1" >> $directory/.bashrc
