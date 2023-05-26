@@ -162,7 +162,7 @@ if [[ "$desktop" =~ ^([1])$ ]]; then
     exit
     echo
 EOF
-    exec $login
+    $login
     rm -rf $directory/.bashrc
 elif [[ "$desktop" =~ ^([2])$ ]]; then 
     sleep 1
@@ -175,7 +175,7 @@ elif [[ "$desktop" =~ ^([2])$ ]]; then
     exit
     echo
 EOF
-    exec $login
+    $login
     rm -rf $directory/.bashrc
 elif [[ "$desktop" =~ ^([3])$ ]]; then 
     mv $directory/.bashrc $directory/.bak 
@@ -188,7 +188,7 @@ elif [[ "$desktop" =~ ^([3])$ ]]; then
     exit
     echo
 EOF
-    exec $login
+    $login
     rm -rf $directory/.bashrc
 else 
     echo 
