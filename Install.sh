@@ -78,6 +78,11 @@ if [ ! -f $tarball ]; then
 else 
     echo ${G}"Existing file found, skip downloading..."
 fi 
+echo ${Y}"Delete Downloaded file?" 
+read del 
+if [[ "$del" =~ ^([yY])$ ]]; then 
+rm -rf $tarball 
+fi 
 sleep 1
 clear 
 echo ${G}"Decompressing rootfs"${W}
