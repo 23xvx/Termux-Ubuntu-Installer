@@ -200,7 +200,7 @@ elif [[ "$desktop" =~ ^([3])$ ]]; then
     mv $directory/.bashrc $directory/.bak 
     sleep 1
     clear 
-    echo ${G}"Installing GNOME Desktop..."${W}
+    echo ${G}"Installing Mate Desktop..."${W}
     cat > $directory/.bashrc <<- EOF
     wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/mate.sh
     bash mate.sh 
