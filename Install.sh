@@ -153,7 +153,8 @@ else
 fi 
 
 #Installing Desktop 
-if [[ "$desktop" =~ ^([1])$ ]]; then 
+if [[ "$desktop" =~ ^([1])$ ]]; then
+    clear 
     echo ${G}"Installing XFCE Desktop..."${W}
     mv $directory/.bashrc $directory/.bak 
     cat > $directory/.bashrc <<- EOF
