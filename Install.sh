@@ -93,13 +93,16 @@ proot --link2symlink  \
 if [[ ! -d "$PD/$ds_name/bin" ]]; then
     mv $PD/$ds_name/*/* $PD/$ds_name/
 fi
+
+#Configures 
 echo "127.0.0.1 localhost " >> $PD/$ds_name/etc/hosts
 rm -rf $PD/$ds_name/etc/resolv.conf
 echo "nameserver 8.8.8.8 " >> $PD/$ds_name/etc/resolv.conf
 echo "touch .hushlogin" >> $PD/$ds_name/root/.bashrc
 echo -e "#!/bin/sh\nexit" > "$PD/$ds_name/usr/bin/groups"
 rm -rf $PD/$ds_name/etc/apt/apt.conf.d/99needrestart
-
+clear 
+echo ${G}"Installing requirements in ubuntu ..." 
 cat > $PD/$ds_name/root/.bashrc <<- EOF
 apt-get update
 apt install udisks2 wget openssl neofetch -y
@@ -113,7 +116,7 @@ EOF
 proot-distro login ubuntu 
 rm -rf $PD/$ds_name/root/.bashrc
 
-#Adding an user?
+#Adding an user
 clear 
 echo ${G}"Do you want to add a user (y/n)"
 echo ${Y}"If you are going to install MATE Desktop, it is strongly reccommended to add a user "
@@ -141,6 +144,7 @@ if [[ "$user" =~ ^([yY])$ ]]; then
 EOF
     proot-distro login ubuntu 
     rm -rf $PD/$ds_name/root/.bashrc
+    sleep 2 
 elif [[ "$user" =~ ^([nN])$ ]]; then
     echo ${G}"The installation will be completed as root"
     sleep 2
@@ -204,8 +208,8 @@ echo "deb http://ftp.debian.org/debian stable main contrib non-free" >> /etc/apt
 apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv-keys 648ACFD622F3D138
 apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9
 apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv-keys 605C66F00D6C9793
-apt update
-apt install firefox-esr -y 
+apt-get update
+apt-get install firefox-esr -y 
 clear 
 vncstart 
 sleep 4
@@ -241,7 +245,8 @@ clear
 #Finish
 sleep 2
 echo ${G}"Installation Finish!"
-echo ${G}"Now you can login to your distro by executing 'start-ubuntu'"
+echo ${G}"Now you can login to your distro by executing "
+echo ${Y}"'start-ubuntu'"
 echo ${R}"Notice : You cannot install it by proot-distro after removing it."
 
 

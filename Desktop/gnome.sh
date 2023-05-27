@@ -1,7 +1,8 @@
 #!/bin/bash
 apt-get update
 sudo apt install xfce4 dbus-x11 dbus -y --no-install-recommends
-sudo apt install tigervnc-standalone-server -y 
+sudo apt install tigervnc-standalone-server -y
+clear  
 echo "Please enter your vnc password"
 vncserver 
 sleep 4

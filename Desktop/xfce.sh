@@ -7,6 +7,7 @@ echo "vncserver -kill :* ; rm -rf /tmp/.X1-lock ; rm -rf /tmp/.X11-unix/X1" >> /
 chmod +x /usr/local/bin/vncstart 
 chmod +x /usr/local/bin/vncstop 
 sleep 2
+clear 
 echo "Please enter your vnc password"
 vncstart
 sleep 5 
