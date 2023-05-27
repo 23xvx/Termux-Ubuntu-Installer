@@ -7,6 +7,7 @@ vncserver
 sleep 4
 vncserver -kill :1
 mkdir $HOME/.vnc
+sudo apt remove xfce4 -y 
 sudo apt install gnome-shell gnome-shell-extension-ubuntu-dock gnome-shell-extensions gnome-terminal -y
 sudo apt install yaru-theme-gtk yaru-theme-icon gnome-tweaks dbus-x11 -y
 mkdir $HOME/.vnc
