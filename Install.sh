@@ -57,6 +57,7 @@ echo " 3) MATE (Stable)"
 echo ${G}"Please press number 1/2/3 to choose your desktop "
 echo ${G}"If you just want a CLI please press enter"${W}
 read desktop 
+sleep 1
 
 #Downloading and Decompressing rootfs
 tarball="lunar.tar.xz"
@@ -73,14 +74,18 @@ if [ ! -f $tarball ]; then
         *)
             echo "unknown architecture"; exit 1 ;;
     esac
+    clear 
     echo ${G}"Downloading rootfs"${W}
     wget "https://cloud-images.ubuntu.com/releases/23.04/release/ubuntu-23.04-server-cloudimg-${archurl}-root.tar.xz" -O $tarball
 else 
+    echo " " 
     echo ${G}"Existing file found, skip downloading..."
 fi 
+echo ""
 echo ${Y}"Delete Downloaded file?(y/n)" 
 read del 
 if [[ "$del" =~ ^([yY])$ ]]; then 
+echo ${y}"Deleting ...."
 rm -rf $tarball 
 fi 
 sleep 1
@@ -202,7 +207,7 @@ fi
 
 #Installing Browser 
 if [[ "$desktop" =~ ^([1])$ ]] || [[ "$desktop" =~ ^([2])$ ]] || [[ "$desktop" =~ ^([3])$ ]]; then 
-echo ${G}"Installing Browser...." ${W}
+echo ${G}"Installing Fiefox Broswer ...." ${W}
 cat > $directory/.bashrc <<- EOF
 echo "deb http://ftp.debian.org/debian stable main contrib non-free" >> /etc/apt/sources.list
 apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv-keys 648ACFD622F3D138
