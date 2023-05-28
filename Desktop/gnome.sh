@@ -1,5 +1,7 @@
 #!/bin/bash
 apt-get update
+clear
+echo "This would install xfce first in order to get a desktop base "
 sudo apt install xfce4 dbus-x11 dbus -y --no-install-recommends
 sudo apt install tigervnc-standalone-server -y
 clear  
