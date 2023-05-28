@@ -13,7 +13,7 @@ case `uname -m` in
     *)
         archurl="x" ;;
 esac 
-if [ "$archurl" =~ ^([x])$]; then 
+if [[ "$archurl" =~ ^([x])$ ]]; then 
     echo "Unsupported architecture, cannot install discord" 
 else 
     wget https://github.com/SpacingBat3/WebCord/releases/download/v4.2.0/webcord_4.2.0_${archurl}.deb -P $HOME/
