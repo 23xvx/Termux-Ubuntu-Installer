@@ -86,7 +86,7 @@ else
     sleep 1 
 fi 
 echo ""
-echo ${Y}"Delete Downloaded file?(y/n)" 
+echo ${Y}"Delete Downloaded file? (y/n)" 
 read del 
 if [[ "$del" =~ ^([yY])$ ]]; then 
 echo ${y}"Deleting ...."
