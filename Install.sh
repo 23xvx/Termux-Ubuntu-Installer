@@ -111,6 +111,7 @@ echo "touch .hushlogin" >> $PD/$ds_name/root/.bashrc
 echo -e "#!/bin/sh\nexit" > "$PD/$ds_name/usr/bin/groups"
 rm -rf $PD/$ds_name/etc/apt/apt.conf.d/99needrestart
 clear 
+mv $PD/$ds_name/root/.bashrc $PD/$ds_name/root/.bash
 echo ${G}"Installing requirements in ubuntu ..."${W}
 cat > $PD/$ds_name/root/.bashrc <<- EOF
 apt-get update
@@ -155,6 +156,7 @@ if [[ "$user" =~ ^([yY])$ ]]; then
 EOF
     proot-distro login ubuntu 
     rm -rf $PD/$ds_name/root/.bashrc
+    mv $PD/$ds_name/root/.bash $PD/$ds_name/root/.bashrc 
     sleep 2 
 elif [[ "$user" =~ ^([nN])$ ]]; then
     sleep 1
