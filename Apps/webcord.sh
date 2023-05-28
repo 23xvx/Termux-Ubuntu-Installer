@@ -19,6 +19,6 @@ else
     wget https://github.com/SpacingBat3/WebCord/releases/download/v4.2.0/webcord_4.2.0_${archurl}.deb -P $HOME/
     sudo apt install ./webcord_4.2.0_${archurl}.deb 
     rm -rf *.deb 
-    sed -i 's/%U/--no-sandbox/g' /usr/share/applications/webcord.desktop 
+    sed -i 's/%U/--no-sandbox %U/g' /usr/share/applications/webcord.desktop 
 fi 
 rm -rf webcord.sh 

@@ -15,12 +15,15 @@ clear
 
 #Notice 
 echo ${G}"This script will install ubuntu 23.04 (Lunar) in proot-distro"
+echo ${C}"Script by No Hope#0281"
 sleep 2
 clear 
 
 #requirements
 echo ${G}"Installing requirements"${W}
 pkg install wget proot-distro pulseaudio -y
+clear 
+echo ${C}"Please allow storage permission"${W}
 termux-setup-storage
 if [[ ! -d "$PREFIX/var/lib/proot-distro" ]]; then
     mkdir -p $PREFIX/var/lib/proot-distro
@@ -309,6 +312,7 @@ clear
 #Finish
 sleep 2
 echo ${G}"Installation Complete"
+echo ""
 echo "start-ubuntu      To Start Ubuntu  "
 echo "" 
 echo "start-ubuntu-x11  To Start Ubuntu with --shared-tmp flag "
