@@ -1,7 +1,7 @@
 ### Termux Ubuntu Installer
  A script to install ubuntu in Termux with different desktops,
  including GNOME , XFCE and MATE desktop . 
-
+- Sources from [Ubuntu](ttps://cloud-images.ubuntu.com)
 ### Notice : Still fixing bugs !!!!
 
 
