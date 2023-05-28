@@ -40,8 +40,12 @@ if [[ "$ans" =~ ^([yY])$ ]]
 then
     echo ${W}"Deleting existing directory...."${W}
     proot-distro remove ubuntu 
-    clear
+    if [[ -d "$PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu" ]]; then
+        echo ${R}"Cannot remove existing file, exiting...."
+        exit 1
+    fi 
     mkdir -p $PD/ubuntu 
+    clear 
 elif [[ "$ans" =~ ^([nN])$ ]]
 then
     echo ${R}"Sorry, but we cannot complete the installation"
