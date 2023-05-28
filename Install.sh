@@ -215,6 +215,7 @@ if [[ "$desktop" =~ ^([1])$ ]] || [[ "$desktop" =~ ^([2])$ ]] || [[ "$desktop" =
     echo ${C}"Install Firefox Web Broswer? (y/n) "
     read browser 
     if [[ "$browser" =~ ^([yY])$ ]]; then
+        echo ""
         echo ${G}"Installing Fiefox Broswer ...." ${W}
         cat > $directory/.bashrc <<- EOF
         wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Apps/firefox.sh
@@ -236,6 +237,7 @@ EOF
         mv $directory/.bak $directory/.bashrc 
         clear 
     else 
+    echo ""
     echo ${G}"Not installing , skip process.." ${W}
     sleep 1
     clear 
@@ -244,6 +246,7 @@ EOF
     echo ${C}"Install Discord (Webcord)? (y/n) "
     read discord 
     if [[ "$discord" =~ ^([yY])$ ]]; then
+        echo 
         echo ${G}"Installing Discord ...." ${W}
         cat > $directory/.bashrc <<- EOF
         wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Apps/webcord.sh
@@ -263,6 +266,7 @@ EOF
     echo ${C}"Install VScode? (y/n) "
     read vscode
     if [[ "$vscode" =~ ^([yY])$ ]]; then
+        echo 
         echo ${G}"Installing Vscode ...." ${W}
         cat > $directory/.bashrc <<- EOF
         wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Apps/vscodefix.sh
