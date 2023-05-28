@@ -19,7 +19,7 @@ esac
 if [ "$archurl" =~ ^([x])$]; then 
     echo "Unsupported architecture, cannot install VScode" 
 else 
-    apt install ./code*
+    sudo apt install ./code*
     sleep 1
     rm code* 
     sed -i 's/%F/--no-sandbox %F/g' /usr/share/applications/code.desktop 
