@@ -7,7 +7,7 @@
 
 ### To Do : 
 1) Adding more desktops 
-2) Installing more applications (VS code, Discord, etc.)
+2) Fixing xfce theme not applying 
 
 ```bash 
 apt install wget -y 
