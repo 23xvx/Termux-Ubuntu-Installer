@@ -15,7 +15,7 @@ sleep 2
 sudo apt remove xfce4 -y 
 sleep 1 
 sudo apt install gnome-shell gnome-shell-extension-ubuntu-dock gnome-shell-extensions gnome-terminal -y
-sudo apt install yaru-theme-gtk yaru-theme-icon gnome-tweaks dbus-x11 -y
+sudo apt install yaru-theme-gtk yaru-theme-icon gnome-tweaks dbus-x11 nautilus -y
 sudo apt autoremove -y 
 echo "
 #!/bin/bash
