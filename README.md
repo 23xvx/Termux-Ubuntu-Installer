@@ -16,6 +16,6 @@ bash Install.sh
 ```
 
 ### Third party applications :
-[Webcord](https://github.com/SpacingBat3/WebCord) MIT license
-[Visual Studio Code](https://code.visualstudio.com) 
-[Termux-app](https://github.com/termux/termux-app) GPLv3 license
+- [Webcord](https://github.com/SpacingBat3/WebCord) MIT license 
+- [Visual Studio Code](https://code.visualstudio.com) 
+- [Termux-app](https://github.com/termux/termux-app) GPLv3 license
