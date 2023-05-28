@@ -3,13 +3,17 @@ apt-get update
 clear
 echo "This would install xfce first in order to get a desktop base "
 sudo apt install xfce4 dbus-x11 dbus -y --no-install-recommends
+sleep 1
 sudo apt install tigervnc-standalone-server -y
+sleep 1
 clear  
 echo "Please enter your vnc password"
 vncserver 
 sleep 4
 vncserver -kill :1
+sleep 2 
 sudo apt remove xfce4 -y 
+sleep 1 
 sudo apt install gnome-shell gnome-shell-extension-ubuntu-dock gnome-shell-extensions gnome-terminal -y
 sudo apt install yaru-theme-gtk yaru-theme-icon gnome-tweaks dbus-x11 -y
 sudo apt autoremove -y 
