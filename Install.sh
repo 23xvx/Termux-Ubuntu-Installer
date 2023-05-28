@@ -256,6 +256,7 @@ EOF
 EOF
         $login 
         clear 
+        rm $directory/.bashrc 
     else 
     echo ${G}"Not installing , skip process.." ${W}
     sleep 1
@@ -275,6 +276,7 @@ EOF
         echo 
 EOF
         $login 
+        rm $directory/.bashrc 
         clear 
     else 
     echo ${G}"Not installing , skip process.." ${W}
@@ -282,7 +284,7 @@ EOF
     clear 
     fi  
 fi 
-mv $directory/.bak $directory/.bashrc 
+
 #Fixing sound 
 echo "export PULSE_SERVER=127.0.0.1" >> $directory/.bashrc
 
@@ -300,6 +302,8 @@ else
     echo "proot-distro login ubuntu --shared-tmp " >> $PREFIX/bin/start-ubuntu-x11 
 fi 
 chmod +x $PREFIX/bin/start-ubuntu*  
+rm $directory/.bashrc 
+mv $directory/.bak $directory/.bashrc 
 clear
 
 #Finish
