@@ -236,24 +236,33 @@ fi
 echo "export PULSE_SERVER=127.0.0.1" >> $directory/.bashrc
 
 #Writing Startup Script 
-rm $PREFIX/bin/start-ubuntu 
+rm $PREFIX/bin/start-ubuntu* 
 echo "pulseaudio \
     --start --load='module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1'  \
     --exit-idle-time=-1" >> $PREFIX/bin/start-ubuntu 
+cp $PREFIX/bin/start-ubuntu $PREFIX/bin/start-ubuntu-x11 
 if [[ "$user" =~ ^([yY])$ ]]; then
     echo "proot-distro login ubuntu --user $username" >> $PREFIX/bin/start-ubuntu 
+    echo "proot-distro login ubuntu --user $username --shared-tmp" >> $PREFIX/bin/start-ubuntu-x11
 else 
     echo "proot-distro login ubuntu " >> $PREFIX/bin/start-ubuntu 
+    echo "proot-distro login ubuntu --shared-tmp " >> $PREFIX/bin/start-ubuntu-x11 
 fi 
-chmod +x $PREFIX/bin/start-ubuntu 
+chmod +x $PREFIX/bin/start-ubuntu*  
 clear
 
 #Finish
 sleep 2
-echo ${G}"Installation Finish!"
-echo ${G}"Now you can login to your distro by executing "
-echo ${Y}"'start-ubuntu'"
-echo ${R}"Notice : You cannot install it by proot-distro after removing it."
+echo ${G}"Installation Complete"
+echo "start-ubuntu      To Start Ubuntu  "
+echo "" 
+echo "start-ubuntu-x11  To Start Ubuntu with --shared-tmp flag "
+echo ""
+echo "vncstart          To start vncserver (In Ubuntu)"
+echo ""
+echo "vncstop           To stop vncserver (In Ubuntu)"
+echo "" 
+echo ${Y}"Notice : You cannot install it by proot-distro after removing it."
 
 
 
