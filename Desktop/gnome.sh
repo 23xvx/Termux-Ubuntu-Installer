@@ -20,7 +20,7 @@ service dbus start
 gnome-shell --x11 " >> $HOME/.vnc/xstartup
 echo "vncserver " >> /usr/local/bin/vncstart
 echo "vncserver -kill :* ; rm -rf /tmp/.X1-lock ; rm -rf /tmp/.X11-unix/X1" >> /usr/local/bin/vncstop
-chmod +x /root/.vnc/xstartup
+chmod +x $HOME/.vnc/xstartup
 chmod +x /usr/local/bin/vncstart 
 chmod +x /usr/local/bin/vncstop 
 sleep 2
