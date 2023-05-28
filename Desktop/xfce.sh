@@ -13,20 +13,17 @@ vncstart
 sleep 5 
 vncstop 
 sleep 2
-vncstart
-sleep 2
 dbus-launch xfconf-query -c xfce4-desktop -np '/desktop-icons/style' -t 'int' -s '0'
-sleep 5
+sleep 4
 dbus-launch xfconf-query -c xsettings -p /Net/ThemeName -s "Yaru-dark"
-sleep 5
+sleep 4
 dbus-launch xfconf-query -c xfwm4 -p /general/theme -s "Yaru-dark"
-sleep 5
+sleep 4
 dbus-launch xfconf-query -c xsettings -p /Net/IconThemeName -s  "Yaru-dark"
-sleep 5
+sleep 4
 dbus-launch xfconf-query -c xsettings -p /Gtk/CursorThemeName -s "Yaru-dark"
-sleep 5
+sleep 4
 dbus-launch xfconf-query -c xfce4-desktop -p $(dbus-launch xfconf-query -c xfce4-desktop -l | grep last-image) -s /usr/share/backgrounds/warty-final-ubuntu.png
 sleep 5
-vncstop 
 rm -rf xfce.sh 
 
