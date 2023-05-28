@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 apt-get update
 clear
 echo "This would install xfce first in order to get a desktop base "
