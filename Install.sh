@@ -108,7 +108,7 @@ echo "touch .hushlogin" >> $PD/$ds_name/root/.bashrc
 echo -e "#!/bin/sh\nexit" > "$PD/$ds_name/usr/bin/groups"
 rm -rf $PD/$ds_name/etc/apt/apt.conf.d/99needrestart
 clear 
-echo ${G}"Installing requirements in ubuntu ..." 
+echo ${G}"Installing requirements in ubuntu ..."${W}
 cat > $PD/$ds_name/root/.bashrc <<- EOF
 apt-get update
 apt install sudo nano udisks2 wget openssl neofetch -y
