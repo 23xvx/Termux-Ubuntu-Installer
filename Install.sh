@@ -214,7 +214,7 @@ fi
 if [[ "$desktop" =~ ^([1])$ ]] || [[ "$desktop" =~ ^([2])$ ]] || [[ "$desktop" =~ ^([3])$ ]]; then 
     echo ${C}"Install Firefox Web Broswer? (y/n) "
     read browser 
-    if [[ "$broswer" =~ ^([yY])$ ]]; then
+    if [[ "$browser" =~ ^([yY])$ ]]; then
         echo ${G}"Installing Fiefox Broswer ...." ${W}
         cat > $directory/.bashrc <<- EOF
         wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Apps/firefox.sh
