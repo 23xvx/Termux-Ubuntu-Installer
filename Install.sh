@@ -14,7 +14,7 @@ C="$(printf '\033[1;36m')"
 clear
 
 #Notice 
-echo ${G}"This is script will install ubuntu 23.04 (lunar) in proot-distro"
+echo ${G}"This script will install ubuntu 23.04 (lunar) in proot-distro"
 sleep 2
 clear 
 
@@ -28,7 +28,7 @@ if [[ ! -d "$PREFIX/var/lib/proot-distro" ]]; then
 fi 
 echo
 if [[ -d "$PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu" ]]; then
-echo ${G}"Existing file found, are you sure to remove it? (y or n)"${W}
+echo ${C}"Existing file found, are you sure to remove it? (y or n)"${W}
 read ans
 fi
 
@@ -50,12 +50,12 @@ else
 fi
 
 #choosing desktop 
-echo ${G}"Please choose your desktop"${Y}
+echo ${C}"Please choose your desktop"${Y}
 echo " 1) XFCE (Light Weight)"
 echo " 2) GNOME (Default desktop of ubuntu) "
 echo " 3) MATE (Stable)"
-echo ${G}"Please press number 1/2/3 to choose your desktop "
-echo ${G}"If you just want a CLI please press enter"${W}
+echo ${C}"Please press number 1/2/3 to choose your desktop "
+echo ${C}"If you just want a CLI please press enter"${W}
 read desktop 
 sleep 1
 
@@ -80,6 +80,7 @@ if [ ! -f $tarball ]; then
 else 
     echo " " 
     echo ${G}"Existing file found, skip downloading..."
+    sleep 1 
 fi 
 echo ""
 echo ${Y}"Delete Downloaded file?(y/n)" 
@@ -110,7 +111,7 @@ clear
 echo ${G}"Installing requirements in ubuntu ..." 
 cat > $PD/$ds_name/root/.bashrc <<- EOF
 apt-get update
-apt install udisks2 wget openssl neofetch -y
+apt install sudo nano udisks2 wget openssl neofetch -y
 rm -rf /var/lib/dpkg/info/udisks2.postinst
 echo "" >> /var/lib/dpkg/info/udisks2.postinst
 dpkg --configure -a
@@ -123,15 +124,17 @@ rm -rf $PD/$ds_name/root/.bashrc
 
 #Adding an user
 clear 
-echo ${G}"Do you want to add a user (y/n)"
+echo ${C}"Do you want to add a user (y/n)"
 echo ${Y}"If you are going to install MATE Desktop, it is strongly reccommended to add a user "
-echo "Because mate-menu crashes in root!"
+echo "Because mate-menu crashes in root"
 read user 
 if [[ "$user" =~ ^([yY])$ ]]; then
-    echo ${G}"Please type in your username "${W}
+    echo ""
+    echo ${C}"Please type in your username "${W}
     read username 
     directory=$PD/$ds_name/home/$username
     login="proot-distro login ubuntu --user $username" 
+    echo ""
     sleep 1
     echo ${G}"Adding a user ...."
     cat > $PD/$ds_name/root/.bashrc <<- EOF
@@ -151,6 +154,8 @@ EOF
     rm -rf $PD/$ds_name/root/.bashrc
     sleep 2 
 elif [[ "$user" =~ ^([nN])$ ]]; then
+    sleep 1
+    echo ""
     echo ${G}"The installation will be completed as root"
     sleep 2
     clear
@@ -205,31 +210,74 @@ else
 fi 
 
 
-#Installing Browser 
+#Installing Personal Applications 
 if [[ "$desktop" =~ ^([1])$ ]] || [[ "$desktop" =~ ^([2])$ ]] || [[ "$desktop" =~ ^([3])$ ]]; then 
-echo ${G}"Installing Fiefox Broswer ...." ${W}
-cat > $directory/.bashrc <<- EOF
-echo "deb http://ftp.debian.org/debian stable main contrib non-free" >> /etc/apt/sources.list
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv-keys 648ACFD622F3D138
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv-keys 605C66F00D6C9793
-sudo apt-get update
-sudo apt-get install firefox-esr -y 
-clear 
-vncstart 
-sleep 4
-DISPLAY=:1 firefox &
-sleep 10
-pkill -f firefox
-vncstop
-sleep 2
-exit 
-echo 
+    echo ${C}"Install Firefox Web Broswer? (y/n) "
+    read browser 
+    if [[ "$broswer" =~ ^([yY])$ ]]; then
+        echo ${G}"Installing Fiefox Broswer ...." ${W}
+        cat > $directory/.bashrc <<- EOF
+        wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Apps/firefox.sh
+        bash firefox.sh 
+        clear 
+        vncstart 
+        sleep 4
+        DISPLAY=:1 firefox &
+        sleep 10
+        pkill -f firefox
+        vncstop
+        sleep 2
+        exit 
+        echo 
 EOF
-$login 
-wget -O $(find $directory/.mozilla/firefox -name *.default-esr)/user.js https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Configures/user.js
-rm -rf $directory/.bashrc
-mv $directory/.bak $directory/.bashrc 
+        $login 
+        wget -O $(find $directory/.mozilla/firefox -name *.default-esr)/user.js https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Configures/user.js
+        rm -rf $directory/.bashrc
+        mv $directory/.bak $directory/.bashrc 
+        clear 
+    else 
+    echo ${G}"Not installing , skip process.." ${W}
+    sleep 1
+    clear 
+    fi 
+    sleep 1 
+    echo ${C}"Install Discord (Webcord)? (y/n) "
+    read discord 
+    if [[ "$discord" =~ ^([yY])$ ]]; then
+        echo ${G}"Installing Discord ...." ${W}
+        cat > $directory/.bashrc <<- EOF
+        wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Apps/webcord.sh
+        bash webcord.sh 
+        sleep 2
+        exit
+        echo 
+EOF
+        $login 
+        clear 
+    else 
+    echo ${G}"Not installing , skip process.." ${W}
+    sleep 1
+    clear 
+    fi  
+    sleep 1 
+    echo ${C}"Install VScode? (y/n) "
+    read vscode
+    if [[ "$vscode" =~ ^([yY])$ ]]; then
+        echo ${G}"Installing Vscode ...." ${W}
+        cat > $directory/.bashrc <<- EOF
+        wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Apps/vscodefix.sh
+        bash vscodefix.sh 
+        sleep 2
+        exit
+        echo 
+EOF
+        $login 
+        clear 
+    else 
+    echo ${G}"Not installing , skip process.." ${W}
+    sleep 1
+    clear 
+    fi  
 fi 
 
 #Fixing sound 
