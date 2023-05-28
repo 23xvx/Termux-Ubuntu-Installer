@@ -233,8 +233,7 @@ if [[ "$desktop" =~ ^([1])$ ]] || [[ "$desktop" =~ ^([2])$ ]] || [[ "$desktop" =
 EOF
         $login 
         wget -O $(find $directory/.mozilla/firefox -name *.default-esr)/user.js https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Configures/user.js
-        rm -rf $directory/.bashrc
-        mv $directory/.bak $directory/.bashrc 
+        rm -rf $directory/.bashrc 
         clear 
     else 
     echo ""
@@ -283,7 +282,7 @@ EOF
     clear 
     fi  
 fi 
-
+mv $directory/.bak $directory/.bashrc 
 #Fixing sound 
 echo "export PULSE_SERVER=127.0.0.1" >> $directory/.bashrc
 
