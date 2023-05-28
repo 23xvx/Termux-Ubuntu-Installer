@@ -111,7 +111,7 @@ echo "touch .hushlogin" >> $PD/$ds_name/root/.bashrc
 echo -e "#!/bin/sh\nexit" > "$PD/$ds_name/usr/bin/groups"
 rm -rf $PD/$ds_name/etc/apt/apt.conf.d/99needrestart
 clear 
-mv $PD/$ds_name/root/.bashrc $PD/$ds_name/root/.bash
+mv $PD/$ds_name/root/.bashrc $PD/$ds_name/root/.bash 
 echo ${G}"Installing requirements in ubuntu ..."${W}
 cat > $PD/$ds_name/root/.bashrc <<- EOF
 apt-get update
@@ -166,6 +166,7 @@ elif [[ "$user" =~ ^([nN])$ ]]; then
     clear
     directory=$PD/$ds_name/root
     login="proot-distro login ubuntu"
+    mv $PD/$ds_name/root/.bash $PD/$ds_name/root/.bashrc 
 else 
     echo ${R}"Cannot identify your answer"
     exit 
@@ -315,13 +316,13 @@ clear
 sleep 2
 echo ${G}"Installation Complete"
 echo ""
-echo "start-ubuntu      To Start Ubuntu  "
+echo " start-ubuntu      To Start Ubuntu  "
 echo "" 
-echo "start-ubuntu-x11  To Start Ubuntu with --shared-tmp flag "
+echo " start-ubuntu-x11  To Start Ubuntu with --shared-tmp flag "
 echo ""
-echo "vncstart          To start vncserver (In Ubuntu)"
+echo " vncstart          To start vncserver (In Ubuntu)"
 echo ""
-echo "vncstop           To stop vncserver (In Ubuntu)"
+echo " vncstop           To stop vncserver (In Ubuntu)"
 echo "" 
 echo ${Y}"Notice : You cannot install it by proot-distro after removing it."
 

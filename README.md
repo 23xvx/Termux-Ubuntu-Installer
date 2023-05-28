@@ -9,6 +9,7 @@
 ### To Do : 
 1) Adding more desktops 
 2) Fixing xfce theme not applying 
+3) Fixing GNOME script repeating error
 
 ```bash 
 apt install wget -y 

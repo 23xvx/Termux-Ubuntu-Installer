@@ -1,14 +1,14 @@
 #!/bin/sh
 apt-get update
 clear
-echo "This would install xfce first in order to get a desktop base "
 sudo apt install xfce4 dbus-x11 dbus -y --no-install-recommends
 sleep 1
 sudo apt install tigervnc-standalone-server -y
 sleep 1
 clear  
 echo "Please enter your vnc password"
-vncserver 
+echo "This would export xfce first in order to get a desktop base "
+vncserver -xstartup /usr/bin/startxfce4
 sleep 4
 vncserver -kill :1
 sleep 2 
