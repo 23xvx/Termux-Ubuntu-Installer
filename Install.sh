@@ -92,6 +92,7 @@ echo ""
 echo ${Y}"Delete Downloaded file? (y/n)" 
 read del 
 if [[ "$del" =~ ^([yY])$ ]]; then 
+echo ""
 echo ${y}"Deleting ...."
 rm -rf $tarball 
 fi 
@@ -113,8 +114,8 @@ echo "nameserver 8.8.8.8 " >> $PD/$ds_name/etc/resolv.conf
 echo "touch .hushlogin" >> $PD/$ds_name/root/.bashrc
 echo -e "#!/bin/sh\nexit" > "$PD/$ds_name/usr/bin/groups"
 rm -rf $PD/$ds_name/etc/apt/apt.conf.d/99needrestart
+mv $PD/$ds_name/root/.bashrc $PD/$ds_name/root/.bash
 clear 
-mv $PD/$ds_name/root/.bashrc $PD/$ds_name/root/.bash 
 echo ${G}"Installing requirements in ubuntu ..."${W}
 cat > $PD/$ds_name/root/.bashrc <<- EOF
 apt-get update
