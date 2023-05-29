@@ -75,12 +75,10 @@ if [ ! -f $tarball ]; then
             archurl="arm64" ;;
         arm*)
             archurl="armhf" ;;
-        ppc64el)
-            archurl="ppc64el" ;;
         x86_64)
             archurl="amd64" ;;
         *)
-            echo "unknown architecture"; exit 1 ;;
+            echo "Not supported architecture"; exit 1 ;;
     esac
     clear 
     echo ${G}"Downloading rootfs"${W}
