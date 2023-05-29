@@ -16,7 +16,7 @@ case `uname -m` in
     *)
         archurl="x" ;
 esac
-if [ "$archurl" =~ ^([x])$]; then 
+if [[ "$archurl" =~ ^([x])$ ]]; then 
     echo "Unsupported architecture, cannot install VScode" 
 else 
     sudo apt install ./code*
