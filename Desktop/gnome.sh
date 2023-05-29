@@ -38,5 +38,11 @@ dbus-launch gsettings set org.gnome.desktop.interface cursor-theme "Yaru"
 sleep 2
 dbus-launch gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/warty-final-ubuntu.png'
 sleep 2
+dbus-launch gnome-extensions enable ubuntu-dock@ubuntu.com
+sleep 2
+dbus-launch gsettings set org.gnome.shell.extensions.dash-to-dock dock-position LEFT
+sleep 2
+dbus-launch gsettings set org.gnome.shell.extensions.dash-to-dock extend-height true
+sleep 2
 rm -rf gnome.sh 
 
