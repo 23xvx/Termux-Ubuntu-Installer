@@ -36,5 +36,7 @@ dbus-launch gsettings set org.gnome.desktop.interface icon-theme "Yaru-dark"
 sleep 2
 dbus-launch gsettings set org.gnome.desktop.interface cursor-theme "Yaru"
 sleep 2
+dbus-launch gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/warty-final-ubuntu.png'
+sleep 2
 rm -rf gnome.sh 
 
