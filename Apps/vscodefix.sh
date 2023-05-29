@@ -21,7 +21,7 @@ if [ "$archurl" =~ ^([x])$]; then
 else 
     sudo apt install ./code*
     sleep 1
-    rm code* 
+    rm ./*.deb 
     sed -i 's/%F/--no-sandbox %F/g' /usr/share/applications/code.desktop 
 fi 
-rm -rf vscodefix.sh 
+rm -rf $HOME/vscodefix.sh 
