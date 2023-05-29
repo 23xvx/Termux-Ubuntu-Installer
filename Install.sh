@@ -97,7 +97,7 @@ echo ${y}"Deleting ...."
 rm -rf $tarball 
 fi 
 sleep 1
-clear 
+echo ""
 echo ${G}"Decompressing rootfs"${W}
 proot --link2symlink  \
     tar --warning=no-unknown-keyword \
