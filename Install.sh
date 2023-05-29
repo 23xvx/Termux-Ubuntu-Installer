@@ -42,6 +42,7 @@ then
     proot-distro remove ubuntu 
     if [[ -d "$PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu" ]]; then
         echo ${R}"Cannot remove existing file, exiting...."
+        echo ${R}"Maybe try to clear Termux Data"
         exit 1
     fi 
     mkdir -p $PD/ubuntu 
