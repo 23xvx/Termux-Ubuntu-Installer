@@ -12,8 +12,6 @@ echo "Please enter your vnc password"
 vncstart
 sleep 5
 vncstop
-clear 
-vncstart
 sleep 2 
 dbus-launch dconf write /org/mate/desktop/interface/gtk-theme "'Yaru-MATE-dark'"
 sleep 2
@@ -22,5 +20,6 @@ sleep 2
 dbus-launch dconf write /org/mate/desktop/interface/icon-theme "'Yaru-MATE-dark'"
 sleep 2
 dbus-launch dconf write /org/mate/desktop/peripherals/mouse/cursor-theme "'Yaru-MATE-dark'"
-vncstop 
+sleep 2
+dbus-launch dconf write /org/mate/desktop/background/picture-filename "'/usr/share/backgrounds/warty-final-ubuntu.png'"
 rm -rf mate.sh 
