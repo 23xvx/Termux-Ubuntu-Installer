@@ -17,7 +17,7 @@ if [[ "$archurl" =~ ^([x])$ ]]; then
     echo "Unsupported architecture, cannot install discord" 
 else 
     wget https://github.com/SpacingBat3/WebCord/releases/download/v4.2.0/webcord_4.2.0_${archurl}.deb -P $HOME/
-    sudo apt install ./webcord_4.2.0_${archurl}.deb 
+    sudo apt install ./webcord_4.2.0_${archurl}.deb -y 
     rm -rf *.deb 
     sed -i 's/%U/--no-sandbox %U/g' /usr/share/applications/webcord.desktop 
 fi 
