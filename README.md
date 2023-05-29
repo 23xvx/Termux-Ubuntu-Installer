@@ -7,8 +7,7 @@
 
 
 ### To Do : 
-1) Adding more desktops 
-2) Fixing mate theme not applying 
+1) Adding more desktops  
 
 ```bash 
 apt install wget -y 
