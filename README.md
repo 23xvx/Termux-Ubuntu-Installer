@@ -8,8 +8,7 @@
 
 ### To Do : 
 1) Adding more desktops 
-2) Fixing xfce theme not applying 
-3) Fixing GNOME script repeating error
+2) Fixing mate theme not applying 
 
 ```bash 
 apt install wget -y 
