@@ -249,8 +249,8 @@ EOF
     else 
     echo ""
     echo ${G}"Not installing , skip process.." ${W}
+    echo 
     sleep 1
-    clear 
     fi 
     sleep 1 
     echo ${C}"Install Discord (Webcord)? (y/n) "
@@ -271,7 +271,7 @@ EOF
     else 
     echo ${G}"Not installing , skip process.." ${W}
     sleep 1
-    clear 
+    echo 
     fi  
     sleep 1 
     echo ${C}"Install VScode? (y/n) "
