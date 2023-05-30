@@ -268,6 +268,7 @@ EOF
         clear 
         rm $directory/.bashrc 
     else 
+    echo 
     echo ${G}"Not installing , skip process.." ${W}
     sleep 1
     echo 
@@ -289,6 +290,7 @@ EOF
         rm $directory/.bashrc 
         clear 
     else 
+    echo 
     echo ${G}"Not installing , skip process.." ${W}
     sleep 1
     clear 
