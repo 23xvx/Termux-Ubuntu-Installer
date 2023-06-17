@@ -78,7 +78,7 @@ if [ ! -f $tarball ]; then
         x86_64)
             archurl="amd64" ;;
         *)
-            echo "Not supported architecture"; exit 1 ;;
+            echo ${R}"Unsupported architecture"; exit 1 ;;
     esac
     clear 
     echo ${G}"Downloading rootfs"${W}
@@ -89,7 +89,7 @@ else
     sleep 1 
 fi 
 echo ""
-echo ${Y}"Delete Downloaded file? (y/n)" 
+echo ${Y}"Delete Downloaded file? (y/n)"${W} 
 read del 
 if [[ "$del" =~ ^([yY])$ ]]; then 
 echo ""
@@ -102,10 +102,7 @@ echo ${G}"Decompressing rootfs"${W}
 proot --link2symlink  \
     tar --warning=no-unknown-keyword \
         --delay-directory-restore --preserve-permissions \
-        -xpf ~/$tarball -C $PD/$ds_name --exclude='dev'||:
-if [[ ! -d "$PD/$ds_name/bin" ]]; then
-    mv $PD/$ds_name/*/* $PD/$ds_name/
-fi
+        -xpf ~/$tarball -C $PD/$ds_name/ --exclude='dev'||:
 
 #Configures 
 echo "127.0.0.1 localhost " >> $PD/$ds_name/etc/hosts
@@ -305,13 +302,13 @@ rm $PREFIX/bin/start-ubuntu*
 echo "pulseaudio \
     --start --load='module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1'  \
     --exit-idle-time=-1" >> $PREFIX/bin/start-ubuntu 
-cp $PREFIX/bin/start-ubuntu $PREFIX/bin/start-ubuntu-x11 
+cp $PREFIX/bin/start-ubuntu $PREFIX/bin/start-ubuntu-tmp 
 if [[ "$user" =~ ^([yY])$ ]]; then
     echo "proot-distro login ubuntu --user $username" >> $PREFIX/bin/start-ubuntu 
-    echo "proot-distro login ubuntu --user $username --shared-tmp" >> $PREFIX/bin/start-ubuntu-x11
+    echo "proot-distro login ubuntu --user $username --shared-tmp" >> $PREFIX/bin/start-ubuntu-tmp
 else 
     echo "proot-distro login ubuntu " >> $PREFIX/bin/start-ubuntu 
-    echo "proot-distro login ubuntu --shared-tmp " >> $PREFIX/bin/start-ubuntu-x11 
+    echo "proot-distro login ubuntu --shared-tmp " >> $PREFIX/bin/start-ubuntu-tmp 
 fi 
 chmod +x $PREFIX/bin/start-ubuntu*  
 rm $directory/.bashrc 
@@ -324,12 +321,14 @@ echo ${G}"Installation Complete"
 echo ""
 echo " start-ubuntu      To Start Ubuntu  "
 echo "" 
-echo " start-ubuntu-x11  To Start Ubuntu with --shared-tmp flag "
+echo " start-ubuntu-tmp  To Start Ubuntu with --shared-tmp flag "
 echo ""
+if [[ "$desktop" =~ ^([1])$ ]] || [[ "$desktop" =~ ^([2])$ ]] || [[ "$desktop" =~ ^([3])$ ]]; then 
 echo " vncstart          To start vncserver (In Ubuntu)"
 echo ""
 echo " vncstop           To stop vncserver (In Ubuntu)"
 echo "" 
+fi 
 echo ${Y}"Notice : You cannot install it by proot-distro after removing it."
 
 
