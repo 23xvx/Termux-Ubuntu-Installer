@@ -3,23 +3,21 @@
 PD=$PREFIX/var/lib/proot-distro/installed-rootfs
 ds_name=ubuntu 
 
-#Adding colors
 R="$(printf '\033[1;31m')"
 G="$(printf '\033[1;32m')"
 Y="$(printf '\033[1;33m')"
 W="$(printf '\033[1;37m')"
 C="$(printf '\033[1;36m')"
 
-#clear
-clear
-
-#Notice 
+Notice(){ 
+clear 
 echo ${G}"This script will install ubuntu 23.04 (Lunar) in proot-distro"
 echo ${C}"Script by No Hope#0281"
 sleep 2
 clear 
+}
 
-#requirements
+Requirements(){
 echo ${G}"Installing requirements"${W}
 pkg install wget proot-distro pulseaudio -y
 clear 
@@ -34,8 +32,6 @@ if [[ -d "$PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu" ]]; then
 echo ${C}"Existing file found, are you sure to remove it? (y or n)"${W}
 read ans
 fi
-
-#YES/NO
 if [[ "$ans" =~ ^([yY])$ ]]
 then
     echo ${W}"Deleting existing directory...."${W}
@@ -56,8 +52,9 @@ else
     mkdir $PD/ubuntu 
     clear
 fi
+}
 
-#choosing desktop 
+Desktop(){
 echo ${C}"Please choose your desktop"${Y}
 echo " 1) XFCE (Light Weight)"
 echo " 2) GNOME (Default desktop of ubuntu) "
@@ -66,8 +63,9 @@ echo ${C}"Please press number 1/2/3 to choose your desktop "
 echo ${C}"If you just want a CLI please press enter"${W}
 read desktop 
 sleep 1
+}
 
-#Downloading and Decompressing rootfs
+Rootfs(){
 tarball="lunar.tar.xz"
 if [ ! -f $tarball ]; then
     case `dpkg --print-architecture` in
@@ -103,8 +101,9 @@ proot --link2symlink  \
     tar --warning=no-unknown-keyword \
         --delay-directory-restore --preserve-permissions \
         -xpf ~/$tarball -C $PD/$ds_name/ --exclude='dev'||:
+}
 
-#Configures 
+Configures(){ 
 echo "127.0.0.1 localhost " >> $PD/$ds_name/etc/hosts
 rm -rf $PD/$ds_name/etc/resolv.conf
 echo "nameserver 8.8.8.8 " >> $PD/$ds_name/etc/resolv.conf
@@ -126,8 +125,9 @@ echo
 EOF
 proot-distro login ubuntu 
 rm -rf $PD/$ds_name/root/.bashrc
+}
 
-#Adding an user
+User(){
 clear 
 echo ${C}"Do you want to add a user (y/n)"
 echo ${Y}"If you are going to install MATE Desktop, it is strongly reccommended to add a user "
@@ -172,53 +172,68 @@ else
     echo ${R}"Cannot identify your answer"
     exit 
 fi 
+}
 
-#Installing Desktop 
+Install_Desktop(){
 if [[ "$desktop" =~ ^([1])$ ]]; then
-    clear 
-    echo ${G}"Installing XFCE Desktop..."${W}
-    mv $directory/.bashrc $directory/.bak 
-    cat > $directory/.bashrc <<- EOF
-    wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/xfce.sh
-    bash xfce.sh 
-    exit
-    echo
-EOF
-    $login
-    rm -rf $directory/.bashrc
+    XFCE 
+    Apps
 elif [[ "$desktop" =~ ^([2])$ ]]; then 
-    sleep 1
-    clear 
-    echo ${G}"Installing GNOME Desktop..."${W}
-    mv $directory/.bashrc $directory/.bak 
-    cat > $directory/.bashrc <<- EOF
-    wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/gnome.sh
-    bash gnome.sh 
-    exit
-    echo
-EOF
-    $login
-    rm -rf $directory/.bashrc
+    GNOME 
+    Apps
 elif [[ "$desktop" =~ ^([3])$ ]]; then 
-    mv $directory/.bashrc $directory/.bak 
-    sleep 1
-    clear 
-    echo ${G}"Installing Mate Desktop..."${W}
-    cat > $directory/.bashrc <<- EOF
-    wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/mate.sh
-    bash mate.sh 
-    exit
-    echo
-EOF
-    $login
-    rm -rf $directory/.bashrc
+    MATE 
+    Apps 
 else 
     echo 
 fi 
+}
 
+XFCE(){
+clear 
+echo ${G}"Installing XFCE Desktop..."${W}
+mv $directory/.bashrc $directory/.bak 
+cat > $directory/.bashrc <<- EOF
+wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/xfce.sh
+bash xfce.sh 
+exit
+echo
+EOF 
+$login
+rm -rf $directory/.bashrc
+}
 
-#Installing Personal Applications 
-if [[ "$desktop" =~ ^([1])$ ]] || [[ "$desktop" =~ ^([2])$ ]] || [[ "$desktop" =~ ^([3])$ ]]; then 
+GNOME(){
+sleep 1
+clear 
+echo ${G}"Installing GNOME Desktop..."${W}
+mv $directory/.bashrc $directory/.bak 
+cat > $directory/.bashrc <<- EOF
+wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/gnome.sh
+bash gnome.sh 
+exit
+echo
+EOF
+$login
+rm -rf $directory/.bashrc
+}
+
+MATE(){
+mv $directory/.bashrc $directory/.bak 
+sleep 1
+clear 
+echo ${G}"Installing Mate Desktop..."${W}
+cat > $directory/.bashrc <<- EOF
+wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/mate.sh
+bash mate.sh 
+exit
+echo
+EOF
+$login
+rm -rf $directory/.bashrc
+}
+
+Apps(){
     echo ${C}"Install Firefox Web Broswer? (y/n) "
     read browser 
     if [[ "$browser" =~ ^([yY])$ ]]; then
@@ -292,12 +307,10 @@ EOF
     sleep 1
     clear 
     fi  
-fi 
+}
 
-#Fixing sound 
+Script(){
 echo "export PULSE_SERVER=127.0.0.1" >> $directory/.bashrc
-
-#Writing Startup Script 
 rm $PREFIX/bin/start-ubuntu* 
 echo "pulseaudio \
     --start --load='module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1'  \
@@ -314,8 +327,9 @@ chmod +x $PREFIX/bin/start-ubuntu*
 rm $directory/.bashrc 
 mv $directory/.bak $directory/.bashrc 
 clear
+}
 
-#Finish
+Finish(){
 sleep 2
 echo ${G}"Installation Complete"
 echo ""
@@ -330,7 +344,16 @@ echo " vncstop           To stop vncserver (In Ubuntu)"
 echo "" 
 fi 
 echo ${Y}"Notice : You cannot install it by proot-distro after removing it."
+}
 
-
+Notice
+Requirements
+Desktop
+Rootfs
+Configures
+User
+Install_Desktop
+Script 
+Finish 
 
 
