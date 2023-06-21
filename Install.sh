@@ -62,7 +62,7 @@ echo ${C}"Please choose your desktop"${Y}
 echo " 1) XFCE (Light Weight)"
 echo " 2) GNOME (Default desktop of ubuntu) "
 echo " 3) MATE (Stable)"
-echp " 4) Windows 11 (GNOME with custom themes)"
+echo " 4) Windows 11 (GNOME with custom themes)"
 echo ${C}"Please press number 1/2/3 to choose your desktop "
 echo ${C}"If you just want a CLI please press enter"${W}
 read desktop 
@@ -202,7 +202,6 @@ elif [[ "$desktop" =~ ^([2])$ ]]; then
 EOF
     $login
     rm -rf $directory/.bashrc
-    if [[ "$desktop" =~ ^([4])$ ]]; then
     cat > $directory/.bashrc <<- EOF
     wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Themes/Win11-theme.sh
     bash gnome.sh 
@@ -221,6 +220,22 @@ elif [[ "$desktop" =~ ^([3])$ ]]; then
     cat > $directory/.bashrc <<- EOF
     wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/mate.sh
     bash mate.sh 
+    exit
+    echo
+EOF
+    $login
+    rm -rf $directory/.bashrc
+elif [[ "$desktop" =~ ^([4])$ ]]; then
+    sleep 1
+    desk="true" 
+    clear 
+    echo ${G}"Installing GNOME Desktop..."${W}
+    mv $directory/.bashrc $directory/.bak 
+    cat > $directory/.bashrc <<- EOF
+    wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/gnome.sh
+    bash gnome.sh 
+    wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Themes/Win11-theme.sh
+    bash Win11-theme.sh 
     exit
     echo
 EOF
