@@ -62,6 +62,7 @@ echo ${C}"Please choose your desktop"${Y}
 echo " 1) XFCE (Light Weight)"
 echo " 2) GNOME (Default desktop of ubuntu) "
 echo " 3) MATE (Stable)"
+echp " 4) Windows 11 (GNOME with custom themes)"
 echo ${C}"Please press number 1/2/3 to choose your desktop "
 echo ${C}"If you just want a CLI please press enter"${W}
 read desktop 
@@ -175,6 +176,7 @@ fi
 
 #Installing Desktop 
 if [[ "$desktop" =~ ^([1])$ ]]; then
+    desk="true"
     clear 
     echo ${G}"Installing XFCE Desktop..."${W}
     mv $directory/.bashrc $directory/.bak 
@@ -188,6 +190,7 @@ EOF
     rm -rf $directory/.bashrc
 elif [[ "$desktop" =~ ^([2])$ ]]; then 
     sleep 1
+    desk="true" 
     clear 
     echo ${G}"Installing GNOME Desktop..."${W}
     mv $directory/.bashrc $directory/.bak 
@@ -199,9 +202,19 @@ elif [[ "$desktop" =~ ^([2])$ ]]; then
 EOF
     $login
     rm -rf $directory/.bashrc
+    if [[ "$desktop" =~ ^([4])$ ]]; then
+    cat > $directory/.bashrc <<- EOF
+    wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Themes/Win11-theme.sh
+    bash gnome.sh 
+    exit
+    echo
+EOF
+    $login
+    rm -rf $directory/.bashrc
 elif [[ "$desktop" =~ ^([3])$ ]]; then 
     mv $directory/.bashrc $directory/.bak 
     sleep 1
+    desk="true" 
     clear 
     echo ${G}"Installing Mate Desktop..."${W}
     cat > $directory/.bashrc <<- EOF
@@ -218,7 +231,7 @@ fi
 
 
 #Installing Personal Applications 
-if [[ "$desktop" =~ ^([1])$ ]] || [[ "$desktop" =~ ^([2])$ ]] || [[ "$desktop" =~ ^([3])$ ]]; then 
+if [[ "$desk" == "true" ]] 
     echo ${C}"Install Firefox Web Broswer? (y/n) "
     read browser 
     if [[ "$browser" =~ ^([yY])$ ]]; then
@@ -323,7 +336,7 @@ echo " start-ubuntu      To Start Ubuntu  "
 echo "" 
 echo " start-ubuntu-tmp  To Start Ubuntu with --shared-tmp flag "
 echo ""
-if [[ "$desktop" =~ ^([1])$ ]] || [[ "$desktop" =~ ^([2])$ ]] || [[ "$desktop" =~ ^([3])$ ]]; then 
+if [[ "$desk" == "true" ]]; then 
 echo " vncstart          To start vncserver (In Ubuntu)"
 echo ""
 echo " vncstop           To stop vncserver (In Ubuntu)"
