@@ -202,15 +202,6 @@ elif [[ "$desktop" =~ ^([2])$ ]]; then
 EOF
     $login
     rm -rf $directory/.bashrc
-    cat > $directory/.bashrc <<- EOF
-    wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Themes/Win11-theme.sh
-    bash gnome.sh 
-    exit
-    echo
-EOF
-    $login
-    rm -rf $directory/.bashrc
-    fi 
 elif [[ "$desktop" =~ ^([3])$ ]]; then 
     mv $directory/.bashrc $directory/.bak 
     sleep 1
