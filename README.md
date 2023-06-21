@@ -20,3 +20,6 @@ bash Install.sh
 - [Webcord](https://github.com/SpacingBat3/WebCord) MIT license 
 - [Visual Studio Code](https://code.visualstudio.com) 
 - [Termux-app](https://github.com/termux/termux-app) GPLv3 license
+
+### Credits 
+- [Win11 themes] (https://youtu.be/x7LEHV4LRpU) 

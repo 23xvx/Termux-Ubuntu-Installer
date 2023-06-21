@@ -238,7 +238,7 @@ fi
 
 
 #Installing Personal Applications 
-if [[ "$desk" == "true" ]] 
+if [[ "$desk" == "true" ]] ; then 
     echo ${C}"Install Firefox Web Broswer? (y/n) "
     read browser 
     if [[ "$browser" =~ ^([yY])$ ]]; then
