@@ -42,6 +42,7 @@ dbus-launch gsettings set org.gnome.desktop.interface icon-theme "Win11-dark"
 dbus-launch gsettings set org.gnome.desktop.interface gtk-theme "Fluent-Dark"
 dbus-launch gsettings set org.gnome.desktop.interface cursor-theme 'DMZ-White'
 dbus-launch gsettings set org.gnome.desktop.interface font-name 'Segoe UI 11'
+dbus-launch gnome-extensions disable ubuntu-dock@ubuntu.com
 dbus-launch gnome-extensions enable dash-to-panel@jderose9.github.com
 dbus-launch gnome-extensions enable arcmenu@arcmenu.com
 dbus-launch gnome-extensions enable blur-my-shell@aunetx
