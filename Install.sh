@@ -211,6 +211,7 @@ EOF
 EOF
     $login
     rm -rf $directory/.bashrc
+    fi 
 elif [[ "$desktop" =~ ^([3])$ ]]; then 
     mv $directory/.bashrc $directory/.bak 
     sleep 1
