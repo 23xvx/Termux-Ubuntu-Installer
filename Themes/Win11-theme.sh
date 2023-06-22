@@ -34,8 +34,8 @@ git clone https://github.com/marcinjakubowski/date-menu-formatter
 mv date-menu-formatter .local/share/gnome-shell/extensions/date-menu-formatter@marcinjakubowski.github.com/
 cd 
 mkdir -p /usr/share/pictures
-wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Images/win11.jpg -C /usr/share/pictures/
-wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Images/win11logo.png -C /usr/share/pictures/
+wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Images/win11.jpg -P /usr/share/pictures/
+wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Images/win11logo.png -P /usr/share/pictures/
 
 echo ${G}"Applying Themes...."${W}
 dbus-launch gsettings set org.gnome.desktop.interface icon-theme "Win11-dark"
