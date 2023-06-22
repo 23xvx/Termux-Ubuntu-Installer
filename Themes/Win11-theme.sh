@@ -9,15 +9,15 @@ mkdir ~/.local/share/gnome-shell/extensions/
 git clone https://github.com/yeyushengfan258/Win11-icon-theme
 cd Win11-icon-theme
 ./install.sh
-cd ..
+cd 
 git clone https://github.com/vinceliuice/Fluent-gtk-theme
 cd Fluent-gtk-theme
 ./install.sh
-cd ..
+cd 
 git clone https://github.com/mrbvrz/segoe-ui-linux
 cd segoe-ui-linux
 ./install.sh
-cd ..
+cd 
 git clone https://github.com/home-sweet-gnome/dash-to-panel
 cd dash-to-panel 
 make install 
