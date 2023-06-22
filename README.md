@@ -11,7 +11,7 @@
 
 ### Themes :
 
-Win11 :
+- Win11 :
 <p align="center"><img src="./Images/win11.png"></p>
 
 ```bash 
