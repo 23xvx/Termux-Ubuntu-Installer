@@ -19,7 +19,7 @@ cd segoe-ui-linux
 ./install.sh
 cd ..
 git clone https://github.com/home-sweet-gnome/dash-to-panel
-cd dash-tp-panel 
+cd dash-to-panel 
 make install 
 cd 
 git clone https://github.com/aunetx/blur-my-shell
