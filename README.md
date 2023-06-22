@@ -7,8 +7,7 @@
 
 
 ### To Do : 
-1) Adding more desktops  
-2) Fixing rootfs being deleted automatically 
+1) Adding more desktops   
 
 ```bash 
 apt install wget -y 
