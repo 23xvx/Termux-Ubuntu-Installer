@@ -67,9 +67,10 @@ dbus-launch gsettings set org.gnome.shell.extensions.arcmenu force-menu-location
 dbus-launch gsettings set org.gnome.shell.extensions.arcmenu menu-item-icon-size 'Large'
 dbus-launch gsettings set org.gnome.shell.extensions.arcmenu button-padding 5
 dbus-launch gsettings set org.gnome.shell.extensions.arcmenu custom-menu-button-icon-size 33.0
+dbus-launch gsettings set org.gnome.shell.extensions.arcmenu custom-menu-button-icon '/usr/share/pictures/win11logo.png'
+dbus-launch gsettings set org.gnome.shell.extensions.arcmenu menu-button-icon 'Custom_Icon'
 dbus-launch gsettings set org.gnome.shell.extensions.blur-my-shell.dash-to-dock override-background false
 dbus-launch gsettings set org.gnome.shell.extensions.blur-my-shell.dash-to-dock brightness 1.0
 dbus-launch gsettings set org.gnome.shell.extensions.blur-my-shell.dash-to-dock sigma 10
 dbus-launch gsettings set org.gnome.shell.extensions.date-menu-formatter pattern 'MM/dd/yy\nHHN：mm aa'
 dbus-launch gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/pictures/win11.jpg'
-dbus-launch gsettings set org.gnome.shell.extensions.arcmenu custom-menu-button-icon '/usr/share/pictures/win11logo.png'
