@@ -27,7 +27,7 @@ cd blur-my-shell
 make install
 cd 
 git clone https://gitlab.com/arcmenu/ArcMenu
-cd Arcmenu
+cd ArcMenu
 make install 
 cd 
 git clone https://github.com/marcinjakubowski/date-menu-formatter
