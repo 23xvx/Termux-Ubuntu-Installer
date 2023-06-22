@@ -9,6 +9,11 @@
 ### To Do : 
 1) Adding more desktops   
 
+### Themes :
+
+Win11 :
+<p align="center"><img src="./Images/win11.png"></p>
+
 ```bash 
 apt install wget -y 
 wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Install.sh
