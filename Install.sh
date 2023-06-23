@@ -34,8 +34,6 @@ if [[ -d "$PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu" ]]; then
 echo ${C}"Existing file found, are you sure to remove it? (y or n)"${W}
 read ans
 fi
-
-#YES/NO
 if [[ "$ans" =~ ^([yY])$ ]]
 then
     echo ${W}"Deleting existing directory...."${W}
@@ -63,6 +61,7 @@ echo " 1) XFCE (Light Weight)"
 echo " 2) GNOME (Default desktop of ubuntu) "
 echo " 3) MATE (Stable)"
 echo " 4) Windows 11 (GNOME with custom themes)"
+echo " 5) MacOS (XFCE with custom themes) (BETA)"
 echo ${C}"Please press number 1/2/3 to choose your desktop "
 echo ${C}"If you just want a CLI please press enter"${W}
 read desktop 
@@ -183,6 +182,7 @@ if [[ "$desktop" =~ ^([1])$ ]]; then
     cat > $directory/.bashrc <<- EOF
     wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/xfce.sh
     bash xfce.sh 
+    rm ~/xfce.sh 
     exit
     echo
 EOF
@@ -197,6 +197,7 @@ elif [[ "$desktop" =~ ^([2])$ ]]; then
     cat > $directory/.bashrc <<- EOF
     wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/gnome.sh
     bash gnome.sh 
+    rm ~/gnome.sh 
     exit
     echo
 EOF
@@ -211,6 +212,7 @@ elif [[ "$desktop" =~ ^([3])$ ]]; then
     cat > $directory/.bashrc <<- EOF
     wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/mate.sh
     bash mate.sh 
+    rm ~/mate.sh
     exit
     echo
 EOF
@@ -225,14 +227,33 @@ elif [[ "$desktop" =~ ^([4])$ ]]; then
     cat > $directory/.bashrc <<- EOF
     wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/gnome.sh
     bash gnome.sh 
+    rm ~/gnome.sh
     wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Themes/Win11-theme.sh
     bash Win11-theme.sh 
+    rm ~/Win11-theme.sh 
     exit
     echo
 EOF
     $login
     rm -rf $directory/.bashrc
-else 
+elif [[ "$desktop" =~ ^([5])$ ]]; then
+    desk="true"
+    clear 
+    echo ${G}"Installing XFCE Desktop..."${W}
+    mv $directory/.bashrc $directory/.bak 
+    cat > $directory/.bashrc <<- EOF
+    wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/xfce.sh
+    bash xfce.sh 
+    rm ~/xfce.sh 
+    wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Themes/MacOS-theme.sh 
+    bash MacOS-theme.sh 
+    rm ~/MacOS-theme.sh
+    exit
+    echo
+EOF
+    $login
+    rm -rf $directory/.bashrc
+else
     echo 
 fi 
 

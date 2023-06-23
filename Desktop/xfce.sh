@@ -29,5 +29,4 @@ dbus-launch xfconf-query -c xfce4-desktop -p $(dbus-launch xfconf-query -c xfce4
 sleep 5
 vncstop 
 sleep 2
-rm -rf xfce.sh 
 

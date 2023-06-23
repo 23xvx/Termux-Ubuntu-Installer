@@ -22,4 +22,3 @@ sleep 2
 dbus-launch dconf write /org/mate/desktop/peripherals/mouse/cursor-theme "'Yaru-MATE-dark'"
 sleep 2
 dbus-launch dconf write /org/mate/desktop/background/picture-filename "'/usr/share/backgrounds/warty-final-ubuntu.png'"
-rm -rf mate.sh 

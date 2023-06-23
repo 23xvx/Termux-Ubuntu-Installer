@@ -45,5 +45,4 @@ sleep 2
 dbus-launch gsettings set org.gnome.shell.extensions.dash-to-dock extend-height true
 sleep 2
 vncstop 
-rm -rf gnome.sh 
 

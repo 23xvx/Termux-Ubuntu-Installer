@@ -1,8 +1,0 @@
-#sources links 
-https://github.com/vinceliuice/WhiteSur-gtk-theme
-https://github.com/vinceliuice/WhiteSur-icon-theme 
-https://github.com/vinceliuice/WhiteSur-cursors
-https://github.com/vinceliuice/WhiteSur-wallpapers
-https://github.com/mrbvrz/segoe-ui-linux
-https://github.com/vinceliuice/Fluent-gtk-theme
-https://github.com/yeyushengfan258/Win11-icon-theme
