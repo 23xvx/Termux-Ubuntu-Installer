@@ -145,8 +145,7 @@ echo
 echo ${G}" vncstop - stop vnc server "
 }
 
-Installing_XFCE
-VNC_Configure
+
 Git_Cloning
 Installing_Theme
 Applying_Theme
