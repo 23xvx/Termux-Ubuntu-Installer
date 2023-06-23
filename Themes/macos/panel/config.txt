@@ -20,7 +20,7 @@
 /plugins/plugin-1/button-icon 'start-here'
 /plugins/plugin-1/button-title 'Applications'
 /plugins/plugin-1/custom-menu true
-/plugins/plugin-1/custom-menu-file '$HOME/.config/menus/xpple.menu'
+/plugins/plugin-1/custom-menu-file '/usr/share/menus/xpple.menu'
 /plugins/plugin-1/show-button-title false 
 /plugins/plugin-1/show-generic-names false
 /plugins/plugin-1/show-menu-icons true
