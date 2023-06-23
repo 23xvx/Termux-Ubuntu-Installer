@@ -9,7 +9,7 @@ Git_Cloning(){
 clear 
 echo ${G}"Installing requirements....."${W}
 sleep 1 
-sudo apt install git wget rofi plank gtk2-engines-murrine unzip dconf-cli xfce4-panel-profiles sassc libxml2-utils libglib2.0-dev-bin bzip2 -y 
+sudo apt install git wget rofi plank gtk2-engines-murrine unzip dconf-cli xfce4-panel-profiles sassc libxml2-utils libglib2.0-dev-bin bzip2 nautilus -y 
 clear  
 echo ${G}"Cloning repositories....."${W}
 cd 
