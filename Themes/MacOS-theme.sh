@@ -136,14 +136,6 @@ rm -rf plank xpple_menu panel WhiteSur* rofi config.txt ubuntu.tar.bz2
 clear 
 }
 
-Finish(){
-echo ${G}"Installation Finish!"
-echo 
-echo ${G}" vncstart - start vnc server "
-echo 
-echo ${G}" vncstop - stop vnc server "
-}
-
 
 Git_Cloning
 Installing_Theme
@@ -151,4 +143,3 @@ Applying_Theme
 Applying_Plank
 Applying_Panel
 Remove_File
-Finish 
