@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Icon=~/.local/share/icons/WhiteSur/launchpad.svg
+Exec=sh -c $HOME/.config/rofi/launchers/type-3/launcher.sh
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=Rofi launcher
+Name=Rofi launcher
+Comment[en_US]=Rofi launcher
+Comment=Rofi launcher
