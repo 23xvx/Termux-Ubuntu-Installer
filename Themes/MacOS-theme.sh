@@ -1,5 +1,4 @@
 #!/bin/sh 
-
 R="$(printf '\033[1;31m')"
 G="$(printf '\033[1;32m')"
 Y="$(printf '\033[1;33m')"
@@ -10,7 +9,7 @@ Git_Cloning(){
 clear 
 echo ${G}"Installing requirements....."${W}
 sleep 1 
-sudo apt install git wget rofi plank gtk2-engines-murrine unzip dconf-cli xfce4-panel-profiles sassc libxml2-utils libglib2.0-dev-bin -y 
+sudo apt install git wget rofi plank gtk2-engines-murrine unzip dconf-cli xfce4-panel-profiles sassc libxml2-utils libglib2.0-dev-bin bzip2 -y 
 clear  
 echo ${G}"Cloning repositories....."${W}
 cd 
