@@ -332,9 +332,11 @@ else
     echo "proot-distro login ubuntu --shared-tmp " >> $PREFIX/bin/start-ubuntu-tmp 
 fi 
 chmod +x $PREFIX/bin/start-ubuntu*  
+if [[ "$user" =~ ^([yY])$ ]]; then
 rm $directory/.bashrc 
 mv $directory/.bak $directory/.bashrc 
 clear
+fi 
 
 #Finish
 sleep 2
