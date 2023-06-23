@@ -119,8 +119,8 @@ mv launchpad.dockitem ~/.config/plank/dock1/launchers/
 }
 
 Applying_Panel(){
-mkdir -p ~/.config/menus
-mv ~/xpple_menu/xpple.menu ~/.config/menus/
+mkdir -p /usr/share/menus
+mv ~/xpple_menu/xpple.menu /usr/share/menus/
 dbus-launch xfconf-query -c xfwm4 -p /general/button_layout -s "CHM|"
 mv ~/panel/config.txt $HOME/
 tar --sort=name --format ustar -cvjhf ubuntu.tar.bz2 config.txt 
