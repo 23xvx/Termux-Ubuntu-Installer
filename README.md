@@ -17,6 +17,10 @@
 - Win11 : (GNOME)
 <p align="center"><img src="./Images/win11.png"></p>
 
+- MacOS : (XFCE)
+<p align="center"><img src="./Images/macos.png"></p>
+
+
 ```bash 
 apt install wget -y 
 wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Install.sh
@@ -29,4 +33,5 @@ bash Install.sh
 - [Termux-app](https://github.com/termux/termux-app) GPLv3 license
 
 ### Credits 
-- [Win11 themes] (https://youtu.be/x7LEHV4LRpU) 
+- Win11 themes https://youtu.be/x7LEHV4LRpU
+- MacOS themes https://youtu.be/xMeeqzoGI_Y 
