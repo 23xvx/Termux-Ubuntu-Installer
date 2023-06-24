@@ -80,7 +80,6 @@ sleep 2
 rm -rf .config/rofi/config.rasi
 vncstop 
 sleep 1
-clear 
 # I don't know why icon theme sometimes not being applied, so I have to apply it twice 
 vncstart
 sleep 2
@@ -94,6 +93,7 @@ cp -r ~/WhiteSur-gtk-theme/src/other/plank/theme-* ~/.local/share/plank/themes
 }
 
 Applying_Plank(){
+clear 
 echo ${G}"Downloading requried file..."${W}
 cd 
 wget https://github.com/23xvx/Termux-Ubuntu-Installer/raw/main/Themes/macos.zip
