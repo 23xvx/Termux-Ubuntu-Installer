@@ -10,7 +10,8 @@
 
 
 ### To Do : 
-1) Adding more themes (MacOS, Windows) 
+1) Adding more themes (MacOS, Windows)
+2) Adding Ubuntu Jammy (22.04) (Maybe)
 
 ### Themes :
 
