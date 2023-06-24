@@ -101,7 +101,6 @@ unzip macos.zip
 rm -rf macos.zip 
 cp  ~/xpple_menu/applications/launchpad.desktop /usr/share/applications/
 mv ~/plank/launchers ~/.config/plank/dock1/
-cp -r ~/.config/plank/dock1/launchers/launchpad.dockitem $HOME
 mv ~/xpple_menu/applications ~/.local/share/
 mv ~/plank/plank.desktop ~/.config/autostart
 if [[ ! -d "$HOME/.local/share/icons" ]]; then 
@@ -115,7 +114,6 @@ chmod +x ~/.config/rofi/launchers/type-3/launcher.sh
 vncstart 
 clear 
 cat ~/plank/dock.ini | dbus-launch dconf load  /net/launchpad/plank/docks/dock1/
-mv launchpad.dockitem ~/.config/plank/dock1/launchers/ 
 }
 
 Applying_Panel(){
