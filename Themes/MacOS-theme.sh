@@ -63,7 +63,7 @@ Applying_Theme(){
 echo ${G}"Applying themes, please wait....."${W}
 vncstart 
 sleep 2 
-dbus-launch xfconf-query -c xfce4-desktop -np '/desktop-icons/style' -t 'int' -s '0'
+dbus-launch xfconf-query -c xfce4-desktop -np '/desktop-icons/style' -t 'int' -s '2'
 sleep 2
 dbus-launch xfconf-query -c xsettings -p /Net/ThemeName -s "WhiteSur-Dark"
 sleep 2
