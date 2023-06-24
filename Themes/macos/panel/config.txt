@@ -46,7 +46,7 @@
 /plugins/plugin-5 'notification-plugin'
 /plugins/plugin-7 'appmenu'
 /plugins/plugin-7/plugins/plugin-7/bold-application-name true
-/plugins/plugin-7/plugins/plugin-7/compact-mode true
+/plugins/plugin-7/plugins/plugin-7/compact-mode false
 /plugins/plugin-7/plugins/plugin-7/expand false
 /plugins/plugin-8 'pulseaudio'
 /plugins/plugin-8/enable-keyboard-shortcuts true
