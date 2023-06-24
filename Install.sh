@@ -61,7 +61,7 @@ echo " 1) XFCE (Light Weight)"
 echo " 2) GNOME (Default desktop of ubuntu) "
 echo " 3) MATE (Stable)"
 echo " 4) Windows 11 (GNOME with custom themes)"
-echo " 5) MacOS (XFCE with custom themes) (BETA)"
+echo " 5) MacOS (XFCE with custom themes)"
 echo ${C}"Please press number 1/2/3 to choose your desktop "
 echo ${C}"If you just want a CLI please press enter"${W}
 read desktop 
