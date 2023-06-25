@@ -66,10 +66,6 @@ dbus-launch xfconf-query -c xfce4-desktop -np '/desktop-icons/style' -t 'int' -s
 sleep 2
 dbus-launch xfconf-query -c xfce4-desktop -np /desktop-icons/gravity -s '2' -t 'int'
 sleep 2
-dbus-launch xfconf-query -c xfce4-desktop -np /last/window-height -s '533' -t 'int'
-sleep 2
-dbus-launch xfconf-query -c xfce4-desktop -np /last/window-width -s '621' -t 'int'
-sleep 2
 dbus-launch xfconf-query -c xfce4-desktop -np '/desktop-icons/style' -t 'int' -s '2'
 sleep 2
 dbus-launch xfconf-query -c xsettings -p /Net/ThemeName -s "WhiteSur-Dark"
