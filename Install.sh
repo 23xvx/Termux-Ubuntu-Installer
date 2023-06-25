@@ -254,7 +254,7 @@ EOF
     $login
     rm -rf $directory/.bashrc
 else
-    echo 
+    echo     
 fi 
 
 
@@ -336,9 +336,6 @@ EOF
     fi  
 fi 
 
-#Fixing sound 
-echo "export PULSE_SERVER=127.0.0.1" >> $directory/.bashrc
-
 #Writing Startup Script 
 rm $PREFIX/bin/start-ubuntu* 
 echo "pulseaudio \
@@ -356,6 +353,7 @@ chmod +x $PREFIX/bin/start-ubuntu*
 if [[ "$user" =~ ^([yY])$ ]]; then
 rm $directory/.bashrc 
 mv $directory/.bak $directory/.bashrc 
+echo "export PULSE_SERVER=127.0.0.1" >> $directory/.bashrc
 clear
 fi 
 
