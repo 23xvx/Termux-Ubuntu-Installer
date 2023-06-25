@@ -61,7 +61,6 @@ clear
 
 Applying_Theme(){
 echo ${G}"Applying themes, please wait....."${W}
-vncstart 
 sleep 2 
 dbus-launch xfconf-query -c xfce4-desktop -np '/desktop-icons/style' -t 'int' -s '0'
 sleep 2
@@ -86,7 +85,6 @@ sleep 2
 dbus-launch xfconf-query -c xfwm4 -p /general/show_dock_shadow -s false
 sleep 2
 rm -rf .config/rofi/config.rasi
-vncstop 
 sleep 1
 # I don't know why icon theme sometimes not being applied, so I have to apply it twice 
 vncstart
