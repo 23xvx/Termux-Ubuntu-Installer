@@ -36,9 +36,9 @@
 /plugins/plugin-2/expand true
 /plugins/plugin-2/style uint32 0
 /plugins/plugin-3 'clock'
-/plugins/plugin-3/digital-date-font          Sans 8
-/plugins/plugin-3/digital-layout             3
-/plugins/plugin-3/digital-time-font          Sans 11
+/plugins/plugin-3/digital-date-font 'Sans 8'
+/plugins/plugin-3/digital-layout 3
+/plugins/plugin-3/digital-time-font 'Sans 11'
 /plugins/plugin-4 'separator'
 /plugins/plugin-4/expand true
 /plugins/plugin-4/style uint32 0
