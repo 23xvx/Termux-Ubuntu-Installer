@@ -64,15 +64,25 @@ echo ${G}"Applying themes, please wait....."${W}
 vncstart 
 sleep 2 
 dbus-launch xfconf-query -c xfce4-desktop -np '/desktop-icons/style' -t 'int' -s '0'
+sleep 2
 dbus-launch xfconf-query -c xfce4-desktop -np /desktop-icons/gravity -s '2' -t 'int'
+sleep 2
 dbus-launch xfconf-query -c xfce4-desktop -np /last/window-height -s '533' -t 'int'
+sleep 2
 dbus-launch xfconf-query -c xfce4-desktop -np /last/window-width -s '621' -t 'int'
+sleep 2
 dbus-launch xfconf-query -c xfce4-desktop -np '/desktop-icons/style' -t 'int' -s '2'
+sleep 2
 dbus-launch xfconf-query -c xsettings -p /Net/ThemeName -s "WhiteSur-Dark"
+sleep 2
 dbus-launch xfconf-query -c xfwm4 -p /general/theme -s "WhiteSur-Dark"
+sleep 2
 dbus-launch xfconf-query -c xsettings -p /Net/IconThemeName -s  "WhiteSur-dark"
+sleep 2
 dbus-launch xfconf-query -c xsettings -p /Gtk/CursorThemeName -s "WhiteSur-cursors"
+sleep 2
 dbus-launch xfconf-query -c xfce4-desktop -p $(dbus-launch xfconf-query -c xfce4-desktop -l | grep last-image) -s $HOME/.local/share/backgrounds/WhiteSur-light.jpg
+sleep 2
 dbus-launch xfconf-query -c xfwm4 -p /general/show_dock_shadow -s false
 sleep 2
 rm -rf .config/rofi/config.rasi
