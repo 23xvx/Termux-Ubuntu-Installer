@@ -64,14 +64,6 @@ echo ${G}"Applying themes, please wait....."${W}
 sleep 2 
 dbus-launch xfconf-query -c xfce4-desktop -np '/desktop-icons/style' -t 'int' -s '0'
 sleep 2
-dbus-launch xfconf-query -c xfce4-desktop -np /desktop-icons/gravity -s '2' -t 'int'
-sleep 2
-dbus-launch xfconf-query -c xfce4-desktop -np /last/window-height -s '533' -t 'int'
-sleep 2
-dbus-launch xfconf-query -c xfce4-desktop -np /last/window-width -s '621' -t 'int'
-sleep 2
-dbus-launch xfconf-query -c xfce4-desktop -np '/desktop-icons/style' -t 'int' -s '2'
-sleep 2
 dbus-launch xfconf-query -c xsettings -p /Net/ThemeName -s "WhiteSur-Dark"
 sleep 2
 dbus-launch xfconf-query -c xfwm4 -p /general/theme -s "WhiteSur-Dark"
