@@ -33,7 +33,6 @@ echo
 if [[ -d "$PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu" ]]; then
 echo ${C}"Existing file found, are you sure to remove it? (y or n)"${W}
 read ans
-fi
 if [[ "$ans" =~ ^([yY])$ ]]
 then
     echo ${W}"Deleting existing directory...."${W}
@@ -53,6 +52,8 @@ else
     echo ${R}"Sorry, we cannot identify your answer "
     exit 1
 fi
+fi
+
 
 #choosing desktop 
 echo ${C}"Please choose your desktop"${Y}
