@@ -50,9 +50,8 @@ then
     echo ${R}"Sorry, but we cannot complete the installation"
     exit 1
 else 
-    echo
-    mkdir $PD/ubuntu 
-    clear
+    echo ${R}"Sorry, we cannot identify your answer "
+    exit 1
 fi
 
 #choosing desktop 
@@ -99,6 +98,7 @@ fi
 sleep 1
 echo ""
 echo ${G}"Decompressing rootfs"${W}
+mkdir $PD/ubuntu 
 proot --link2symlink  \
     tar --warning=no-unknown-keyword \
         --delay-directory-restore --preserve-permissions \
