@@ -99,7 +99,7 @@ fi
 sleep 1
 echo ""
 echo ${G}"Decompressing rootfs"${W}
-mkdir $PD/ubuntu 
+mkdir -p $PD/ubuntu 
 proot --link2symlink  \
     tar --warning=no-unknown-keyword \
         --delay-directory-restore --preserve-permissions \
