@@ -62,6 +62,7 @@ echo " 2) GNOME (Default desktop of ubuntu) "
 echo " 3) MATE (Stable)"
 echo " 4) Windows 11 (GNOME with custom themes)"
 echo " 5) MacOS (XFCE with custom themes)"
+echo " 6) Cinnamon (Linux Mint default desktop)"
 echo ${C}"Please press number 1/2/3 to choose your desktop "
 echo ${C}"If you just want a CLI please press enter"${W}
 read desktop 
@@ -249,6 +250,20 @@ elif [[ "$desktop" =~ ^([5])$ ]]; then
     wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Themes/MacOS-theme.sh 
     bash MacOS-theme.sh 
     rm ~/MacOS-theme.sh
+    exit
+    echo
+EOF
+    $login
+    rm -rf $directory/.bashrc
+elif [[ "$desktop" =~ ^([6])$ ]]; then
+    desk="true"
+    clear 
+    echo ${G}"Installing XFCE Desktop..."${W}
+    mv $directory/.bashrc $directory/.bak 
+    cat > $directory/.bashrc <<- EOF
+    wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/cinnamon.sh
+    bash cinnamon.sh 
+    rm ~/cinnamon.sh 
     exit
     echo
 EOF
