@@ -1,6 +1,6 @@
 ### Termux Ubuntu Installer
  <p>A script to install Ubuntu Lunar (23.04) in Termux with different desktops,
- including GNOME , XFCE and MATE desktop . </p>
+ including GNOME , XFCE , Cinnamon and MATE desktop . </p>
  <p>Also, it provides different desktops with custom theme.</p>
 
 - Sources from [Ubuntu](https://cloud-images.ubuntu.com)
