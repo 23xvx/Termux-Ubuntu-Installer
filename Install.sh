@@ -258,7 +258,7 @@ EOF
 elif [[ "$desktop" =~ ^([6])$ ]]; then
     desk="true"
     clear 
-    echo ${G}"Installing XFCE Desktop..."${W}
+    echo ${G}"Installing Cinnamon Desktop..."${W}
     mv $directory/.bashrc $directory/.bak 
     cat > $directory/.bashrc <<- EOF
     wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/cinnamon.sh
