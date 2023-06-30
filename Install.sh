@@ -281,7 +281,7 @@ if [[ "$desk" == "true" ]] ; then
     read browser 
     if [[ "$browser" =~ ^([yY])$ ]]; then
         echo ""
-        echo ${G}"Installing Fiefox Broswer ...." ${W}
+        echo ${G}"Installing Firefox Broswer ...." ${W}
         cat > $directory/.bashrc <<- EOF
         wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Apps/firefox.sh
         bash firefox.sh 
