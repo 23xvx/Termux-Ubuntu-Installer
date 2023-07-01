@@ -30,7 +30,7 @@
 </details>
 
 <details></br>
-<summary><b><code>Cinnamon Desktop</code></b></summary>
+<summary><b>Cinnamon Desktop</b></summary>
 <p align="center"><img src="./Images/cinnamon.png"></p>
 </details>
 
