@@ -15,17 +15,17 @@
 ### Desktops :
 
 <details></br>
-<summary><b>Xfce Desktop</b></summary>
+<summary><b>XFCE Desktop</b></summary>
 <p align="center"><img src="./Images/xfce.png"></p>
 </details>
 
 <details></br>
-<summary><b><code>Gnome Desktop</code></b></summary>
+<summary><b>GNOME Desktop</b></summary>
 <p align="center"><img src="./Images/gnome.png"></p>
 </details>
 
 <details></br>
-<summary><b><code>Mate Desktop</code></b></summary>
+<summary><b>MATE Desktop</b></summary>
 <p align="center"><img src="./Images/mate.png"></p>
 </details>
 
@@ -36,10 +36,10 @@
 
 ### Themes :
 
-- Win11 : (GNOME)
+- <b>Win11 : (GNOME)</b>
 <p align="center"><img src="./Images/win11.png"></p>
 
-- MacOS : (XFCE)
+- <b>MacOS : (XFCE)</b>
 <p align="center"><img src="./Images/macos.png"></p>
 
 
