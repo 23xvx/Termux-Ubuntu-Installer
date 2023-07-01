@@ -20,7 +20,7 @@ if [[ "$archurl" =~ ^([x])$ ]]; then
     echo "Unsupported architecture, cannot install VScode" 
     sleep 1 
 else 
-    sudo apt install ./code*
+    sudo apt install ./code* -y
     sleep 1
     rm ./*.deb 
     sed -i 's/%F/--no-sandbox %F/g' /usr/share/applications/code.desktop 
