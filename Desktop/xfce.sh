@@ -13,6 +13,7 @@ vncstart
 sleep 5 
 vncstop 
 sleep 4
+vncstart
 dbus-launch xfconf-query -c xsettings -p /Net/ThemeName -s "Yaru-dark"
 sleep 4
 dbus-launch xfconf-query -c xfwm4 -p /general/theme -s "Yaru-dark"
@@ -23,4 +24,6 @@ dbus-launch xfconf-query -c xsettings -p /Gtk/CursorThemeName -s "Yaru-dark"
 sleep 4
 dbus-launch xfconf-query -c xfce4-desktop -p $(dbus-launch xfconf-query -c xfce4-desktop -l | grep last-image) -s /usr/share/backgrounds/warty-final-ubuntu.png
 sleep 5
+vncstop
+sleep 2
 
