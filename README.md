@@ -50,7 +50,7 @@ bash Install.sh
 ```
 
 ### Known Bugs :
-1) Cannot move or copy files in gnome/cinnamon file manager</br>Solution : PLease process in the terminal 
+1) Cannot move or copy files in gnome/cinnamon file manager</br>Solution : Please process in the terminal 
 
 ### Third party applications :
 - [Webcord](https://github.com/SpacingBat3/WebCord) MIT license 
