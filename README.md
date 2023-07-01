@@ -15,22 +15,22 @@
 ### Desktops :
 
 <details></br>
-<summary><b><code>Xfce Dessktop</code></b></summary>
+<summary><b>Xfce Desktop</b></summary>
 <p align="center"><img src="./Images/xfce.png"></p>
 </details>
 
 <details></br>
-<summary><b><code>Gnome Dessktop</code></b></summary>
+<summary><b><code>Gnome Desktop</code></b></summary>
 <p align="center"><img src="./Images/gnome.png"></p>
 </details>
 
 <details></br>
-<summary><b><code>Mate Dessktop</code></b></summary>
+<summary><b><code>Mate Desktop</code></b></summary>
 <p align="center"><img src="./Images/mate.png"></p>
 </details>
 
 <details></br>
-<summary><b><code>Cinnamon Dessktop</code></b></summary>
+<summary><b><code>Cinnamon Desktop</code></b></summary>
 <p align="center"><img src="./Images/cinnamon.png"></p>
 </details>
 
