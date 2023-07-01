@@ -17,22 +17,22 @@
 
 <details></br>
 <summary><b><code>Xfce Dessktop</code></b></summary>
-<p align="center"><img src="./Images/xfce.png"</p>
+<p align="center"><img src="./Images/xfce.png"></p>
 </details>
 
 <details></br>
 <summary><b><code>Gnome Dessktop</code></b></summary>
-<p align="center"><img src="./Images/gnome.png"</p>
+<p align="center"><img src="./Images/gnome.png"></p>
 </details>
 
 <details></br>
 <summary><b><code>Mate Dessktop</code></b></summary>
-<p align="center"><img src="./Images/mate.png"</p>
+<p align="center"><img src="./Images/mate.png"></p>
 </details>
 
 <details></br>
 <summary><b><code>Cinnamon Dessktop</code></b></summary>
-<p align="center"><img src="./Images/cinnamon.png"</p>
+<p align="center"><img src="./Images/cinnamon.png"></p>
 </details>
 
 ### Themes :
@@ -49,6 +49,10 @@ apt install wget -y
 wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Install.sh
 bash Install.sh 
 ```
+
+### Known Bugs :
+1) Cannot move or copy files in gnome/cinnamon file manager 
+Solution : PLease process in the terminal 
 
 ### Third party applications :
 - [Webcord](https://github.com/SpacingBat3/WebCord) MIT license 
