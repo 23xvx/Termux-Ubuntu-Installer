@@ -59,10 +59,11 @@ fi
 echo ${C}"Please choose your desktop"${Y}
 echo " 1) XFCE (Light Weight)"
 echo " 2) GNOME (Default desktop of ubuntu) "
-echo " 3) MATE (Stable)"
+echo " 3) MATE "
 echo " 4) Windows 11 (GNOME with custom themes)"
 echo " 5) MacOS (XFCE with custom themes)"
-echo " 6) Cinnamon (Linux Mint default desktop)"
+echo " 6) Cinnamon "
+echo " 7) Budgie "
 echo ${C}"Please press number 1/2/3 to choose your desktop "
 echo ${C}"If you just want a CLI please press enter"${W}
 read desktop 
@@ -264,6 +265,20 @@ elif [[ "$desktop" =~ ^([6])$ ]]; then
     wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/cinnamon.sh
     bash cinnamon.sh 
     rm ~/cinnamon.sh 
+    exit
+    echo
+EOF
+    $login
+    rm -rf $directory/.bashrc
+elif [[ "$desktop" =~ ^([7])$ ]]; then
+    desk="true"
+    clear 
+    echo ${G}"Installing Budgie Desktop..."${W}
+    mv $directory/.bashrc $directory/.bak 
+    cat > $directory/.bashrc <<- EOF
+    wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/budgie.sh
+    bash budgie.sh 
+    rm ~/budgie.sh 
     exit
     echo
 EOF
