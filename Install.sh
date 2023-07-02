@@ -366,12 +366,13 @@ else
     echo "proot-distro login ubuntu --shared-tmp " >> $PREFIX/bin/start-ubuntu-tmp 
 fi 
 chmod +x $PREFIX/bin/start-ubuntu*  
-if [[ "$user" =~ ^([yY])$ ]]; then
 rm $directory/.bashrc 
 mv $directory/.bak $directory/.bashrc 
+if [[ ! -f "$directory/.bashrc " ]]; then
+cp $directory/etc/skel/.bashrc  $directory/
+fi 
 echo "export PULSE_SERVER=127.0.0.1" >> $directory/.bashrc
 clear
-fi 
 
 #Finish
 sleep 2

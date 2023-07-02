@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 sudo apt-get update 
 sudo apt install ubuntucinnamon-desktop --no-install-recommends -y
 sudo apt install dbus-x11 tigervnc-standalone-server thunar -y 
