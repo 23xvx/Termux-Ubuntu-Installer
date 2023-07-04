@@ -173,7 +173,13 @@ elif [[ "$user" =~ ^([nN])$ ]]; then
     mv $PD/$ds_name/root/.bash $PD/$ds_name/root/.bashrc 
 else 
     echo ${R}"Cannot identify your answer"
-    exit 
+    echo ${Y}"The installation will be completed as root"
+    sleep 2
+    sleep 2
+    clear
+    directory=$PD/$ds_name/root
+    login="proot-distro login ubuntu"
+    mv $PD/$ds_name/root/.bash $PD/$ds_name/root/.bashrc 
 fi 
 
 #Installing Desktop 
