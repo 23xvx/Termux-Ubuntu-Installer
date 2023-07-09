@@ -23,8 +23,10 @@ clear
 echo ${G}"Installing requirements"${W}
 pkg install wget proot-distro pulseaudio -y
 clear 
+if [[ ! -d "~/storage" ]]; then
 echo ${C}"Please allow storage permission"${W}
 termux-setup-storage
+fi 
 if [[ ! -d "$PREFIX/var/lib/proot-distro" ]]; then
     mkdir -p $PREFIX/var/lib/proot-distro
     mkdir -p $PREFIX/var/lib/proot-distro/installed-rootfs
@@ -90,14 +92,7 @@ else
     echo ${G}"Existing file found, skip downloading..."
     sleep 1 
 fi 
-echo ""
-echo ${Y}"Delete Downloaded file? (y/n)"${W} 
-read del 
-if [[ "$del" =~ ^([yY])$ ]]; then 
-echo ""
-echo ${y}"Deleting ...."
-rm -rf $tarball 
-fi 
+
 sleep 1
 echo ""
 echo ${G}"Decompressing rootfs"${W}
@@ -106,7 +101,19 @@ proot --link2symlink  \
     tar --warning=no-unknown-keyword \
         --delay-directory-restore --preserve-permissions \
         -xpf ~/$tarball -C $PD/$ds_name/ --exclude='dev'||:
-
+if [ ! -f "$PD/$ds_name/bin/su" ]; then
+    echo ${R}"Installation has occur an error"
+    echo ${R}"Please execute the script again"
+    exit 1 
+fi 
+echo ""
+echo ${Y}"Delete Downloaded file? (y/n)"${W} 
+read del 
+if [[ "$del" =~ ^([yY])$ ]]; then 
+echo ""
+echo ${y}"Deleting ...."
+rm -rf $tarball 
+fi 
 #Configures 
 echo "127.0.0.1 localhost " >> $PD/$ds_name/etc/hosts
 rm -rf $PD/$ds_name/etc/resolv.conf
