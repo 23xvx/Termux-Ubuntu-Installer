@@ -1,9 +1,19 @@
 #!/bin/sh 
-echo "deb http://ftp.debian.org/debian stable main contrib non-free" >> /etc/apt/sources.list
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv-keys 648ACFD622F3D138
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv-keys 605C66F00D6C9793
-sudo apt-get update
-sudo apt-get install firefox-esr -y 
-mv /etc/apt/trusted.gpg /etc/apt/trusted.gpg.d/
+#source by udroid 
+apt update 
+sudo apt install -y firefox
+rm -rf /etc/apt/preferences.d/fire*
+sudo apt remove firefox* -y
+sudo apt update && apt install firefox software-properties-common -y
+sudo add-apt-repository --yes ppa:mozillateam/ppa
+echo '
+Package: *
+Pin: release o=LP-PPA-mozillateam
+Pin-Priority: 1001
+' >> /etc/apt/preferences.d/mozilla-firefox
+echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";'>> /etc/apt/apt.conf.d/51unattended-upgrades-firefox
+apt update 
+apt remove firefox -y
+apt install firefox -y
+mv /etc/apt/trusted.gpg /etc/apt/trusted.gpg.d/ 
 rm -rf firefox.sh 
