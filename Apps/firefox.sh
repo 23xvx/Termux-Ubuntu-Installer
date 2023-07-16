@@ -4,7 +4,7 @@ apt update
 sudo apt install -y firefox
 rm -rf /etc/apt/preferences.d/fire*
 sudo apt remove firefox -y
-sudo apt update && apt install firefox software-properties-common -y
+sudo apt update && sudo apt install firefox software-properties-common -y
 sudo add-apt-repository --yes ppa:mozillateam/ppa
 echo '
 Package: *
