@@ -48,7 +48,7 @@ dbus-launch gnome-extensions enable arcmenu@arcmenu.com
 dbus-launch gnome-extensions enable blur-my-shell@aunetx
 dbus-launch gnome-extensions enable user-theme@gnome-shell-extensions.gcampax.github.com
 dbus-launch gnome-extensions enable date-menu-formatter@marcinjakubowski.github.com
-dbus-launch gsettings set org.gnome.shell.extensions.user-theme name 'Fluent-Light'
+dbus-launch gsettings set org.gnome.shell.extensions.user-theme name 'Fluent-Dark'
 sudo cp ~/.local/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com/schemas/org.gnome.shell.extensions.dash-to-panel.gschema.xml /usr/share/glib-2.0/schemas/ 
 sudo cp ~/.local/share/gnome-shell/extensions/blur-my-shell@aunetx/schemas/org.gnome.shell.extensions.blur-my-shell.gschema.xml /usr/share/glib-2.0/schemas/ 
 sudo cp ~/.local/share/gnome-shell/extensions/arcmenu@arcmenu.com/schemas/org.gnome.shell.extensions.arcmenu.gschema.xml /usr/share/glib-2.0/schemas/ 
