@@ -15,5 +15,4 @@ echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codenam
 sudo apt update 
 sudo apt remove firefox -y
 sudo apt install firefox -y
-mv /etc/apt/trusted.gpg /etc/apt/trusted.gpg.d/ 
 rm -rf firefox.sh 
