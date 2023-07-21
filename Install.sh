@@ -139,7 +139,7 @@ configures() {
     rm -rf $PD/$ds_name/etc/apt/apt.conf.d/99needrestart
     rm -rf $PD/$ds_name/root/.bashrc
     clear 
-    echo "Installing requirements in ubuntu..."${W}
+    echo ${G}"Installing requirements in ubuntu..."${W}
     cat > $PD/$ds_name/root/.bashrc <<- EOF
     apt-get update
     apt install sudo nano udisks2 wget openssl neofetch git -y
