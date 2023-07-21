@@ -349,7 +349,8 @@ apps() {
             echo 
 EOF
             $login 
-            wget -O $(find $directory/.mozilla/firefox -name *.default-esr)/user.js https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Configures/user.js
+            echo "user_pref("media.cubeb.sandbox", false); 
+ user_pref("security.sandbox.content.level", 1);" >> $directory/.mozilla/firefox/*release/prefs.js
             rm -rf $directory/.bashrc 
             clear 
         else 
