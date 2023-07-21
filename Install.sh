@@ -155,53 +155,51 @@ EOF
 }
 
 user() {
-clear
-echo ${C}"Do you want to add a user (y/n)"
-echo ${Y}"If you are going to install MATE Desktop, it is strongly reccommended to add a user "
-echo "Because mate-menu crashes in root"
-read user
-if [[ "$user" =~ ^([yY])$ ]]; then
-    echo ""
-    echo ${C}"Please type in your username "${W}
-    read username
-    directory=$PD/$ds_name/home/$username
-    login="proot-distro login ubuntu --user $username"
-    echo ""
-    sleep 1
-    echo ${G}"Adding a user ...."
-    cat > $PD/$ds_name/root/.bashrc <<- EOF
-    useradd -m \
-        -G sudo \
-        -d /home/${username} \
-        -k /etc/skel \
-        -s /bin/bash \
-        $username
-    echo $username ALL=\(root\) ALL > /etc/sudoers.d/$username
-    chmod 0440 /etc/sudoers.d/$username
-    echo "$username ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
-    exit
-    echo
+    clear
+    echo ${C}"Do you want to add a user (y/n)"
+    echo ${Y}"If you are going to install MATE Desktop, it is strongly reccommended to add a user "
+    echo "Because mate-menu crashes in root"
+    read user
+    if [[ "$user" =~ ^([yY])$ ]]; then
+        echo ""
+        echo ${C}"Please type in your username "${W}
+        read username
+        directory=$PD/$ds_name/home/$username
+        login="proot-distro login ubuntu --user $username"
+        echo ""
+        sleep 1
+        echo ${G}"Adding a user ...."
+        cat > $PD/$ds_name/root/.bashrc <<- EOF
+        useradd -m \
+            -G sudo \
+            -d /home/${username} \
+            -k /etc/skel \
+            -s /bin/bash \
+            $username
+        echo $username ALL=\(root\) ALL > /etc/sudoers.d/$username
+        chmod 0440 /etc/sudoers.d/$username
+        echo "$username ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+        exit
+        echo
 EOF
-    proot-distro login ubuntu
-    rm -rf $PD/$ds_name/root/.bashrc
-    sleep 2
-    clear 
-elif [[ "$user" =~ ^([nN])$ ]]; then
-    sleep 1
-    echo ""
-    echo ${G}"The installation will be completed as root"
-    sleep 2
-    clear
-    directory=$PD/$ds_name/root
-    login="proot-distro login ubuntu"
-else
-    echo ${R}"Cannot identify your answer"
-    echo ${Y}"The installation will be completed as root"
-    sleep 2
-    clear
-    directory=$PD/$ds_name/root
-    login="proot-distro login ubuntu"
-fi
+        proot-distro login ubuntu
+        rm -rf $PD/$ds_name/root/.bashrc
+        sleep 2
+        clear 
+    elif [[ "$user" =~ ^([nN])$ ]]; then
+        sleep 1
+        echo ""
+        echo ${G}"The installation will be completed as root"
+        sleep 2
+        clear
+        directory=$PD/$ds_name/root
+        login="proot-distro login ubuntu"
+    else
+        echo ${R}"Cannot identify your answer"
+        echo ${R}"Please complete the process again"
+        sleep 2
+        user
+    fi 
 }
 
 install_desktop() {
@@ -350,7 +348,7 @@ apps() {
 EOF
             $login 
             echo "user_pref("media.cubeb.sandbox", false); 
- user_pref("security.sandbox.content.level", 1);" >> $directory/.mozilla/firefox/*release/prefs.js
+            user_pref("security.sandbox.content.level", 1);" >> $directory/.mozilla/firefox/*release/prefs.js
             rm -rf $directory/.bashrc 
             clear 
         else 
