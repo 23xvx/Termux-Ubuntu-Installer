@@ -15,7 +15,7 @@ requirements() {
     echo ${G}"This is a script to install ubuntu 23.04 (Lunar) in proot-distro"
     sleep 1 
     echo ${G}"Installing required packages..."${W}
-    pkg install pulseaudio proot-distro wget -y
+    pkg install pulseaudio proot-distro wget -nv -y
     if [ ! -d '/data/data/com.termux/files/home/storage' ]; then
         echo ${C}"Please allow storage permission"${W}
         termux-setup-storage
@@ -98,7 +98,7 @@ downloader() {
         esac
         clear
         echo ${G}"Downloading rootfs"${W}
-        wget "https://cloud-images.ubuntu.com/releases/23.04/release/ubuntu-23.04-server-cloudimg-${archurl}-root.tar.xz" -O $tarball
+        wget -nv "https://cloud-images.ubuntu.com/releases/23.04/release/ubuntu-23.04-server-cloudimg-${archurl}-root.tar.xz" -O $tarball
         sleep 1
     else
     echo " "
@@ -142,7 +142,7 @@ configures() {
     echo ${G}"Installing requirements in ubuntu..."${W}
     cat > $PD/$ds_name/root/.bashrc <<- EOF
     apt-get update
-    apt install sudo nano udisks2 wget openssl neofetch git -y
+    apt install sudo nano udisks2 wget -nv openssl neofetch git -y
     rm -rf /var/lib/dpkg/info/udisks2.postinst
     echo "" >> /var/lib/dpkg/info/udisks2.postinst
     dpkg --configure -a
@@ -230,7 +230,7 @@ xfce_mode() {
     echo ${G}"Installing XFCE Desktop..."${W}
     mv $directory/.bashrc $directory/.bak
     cat > $directory/.bashrc <<- EOF
-    wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/xfce.sh
+    wget -nv https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/xfce.sh
     bash xfce.sh
     rm ~/xfce.sh
     exit
@@ -245,7 +245,7 @@ gnome_mode() {
     echo ${G}"Installing GNOME Desktop...."${W}
     mv $directory/.bashrc $directory/.bak 
     cat > $directory/.bashrc <<- EOF
-    wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/gnome.sh
+    wget -nv https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/gnome.sh
     bash gnome.sh 
     rm ~/gnome.sh 
     exit
@@ -260,7 +260,7 @@ mate_mode() {
     echo ${G}"Installing Mate Desktop..."${W}
     mv $directory/.bashrc $directory/.bak 
     cat > $directory/.bashrc <<- EOF
-    wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/mate.sh 
+    wget -nv https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/mate.sh 
     bash mate.sh 
     rm ~/mate.sh
     exit
@@ -275,7 +275,7 @@ cinnamon_mode() {
     echo ${G}"Installing Cinnamon Desktop..."${W}
     mv $directory/.bashrc $directory/.bak 
     cat > $directory/.bashrc <<- EOF
-    wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/cinnamon.sh
+    wget -nv https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/cinnamon.sh
     bash cinnamon.sh 
     rm ~/cinnamon.sh 
     exit
@@ -290,7 +290,7 @@ budgie_mode() {
     echo ${G}"Installing Budgie Desktop..."${W}
     mv $directory/.bashrc $directory/.bak 
     cat > $directory/.bashrc <<- EOF
-    wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/budgie.sh
+    wget -nv https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/budgie.sh
     bash budgie.sh 
     rm ~/budgie.sh 
     exit
@@ -302,7 +302,7 @@ EOF
 
 windows_theme() {
     cat > $directory/.bashrc <<- EOF
-    wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Themes/Win11-theme.sh
+    wget -nv https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Themes/Win11-theme.sh
     bash Win11-theme.sh 
     rm ~/Win11-theme.sh 
     exit
@@ -314,7 +314,7 @@ EOF
 
 macos_theme() {
     cat > $directory/.bashrc <<- EOF
-    wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Themes/MacOS-theme.sh 
+    wget -nv https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Themes/MacOS-theme.sh 
     bash MacOS-theme.sh 
     rm ~/MacOS-theme.sh
     exit
@@ -333,7 +333,7 @@ apps() {
             echo ""
             echo ${G}"Installing Firefox Broswer ...." ${W}
             cat > $directory/.bashrc <<- EOF
-            wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Apps/firefox.sh
+            wget -nv https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Apps/firefox.sh
             bash firefox.sh 
             clear 
             vncstart 
@@ -347,8 +347,8 @@ apps() {
             echo 
 EOF
             $login 
-            echo 'user_pref("sandbox.cubeb", false); 
-            user_pref("security.sandbox.content.level", 1);' >> $directory/.mozilla/firefox/*release/prefs.js
+            echo 'user_pref("sandbox.cubeb", false);
+            user_pref("security.sandbox.content.level", 1);' >> $directory/.mozilla/firefox-esr/*esr102/prefs.js
             rm -rf $directory/.bashrc 
             clear 
         else 
@@ -364,7 +364,7 @@ EOF
             echo 
             echo ${G}"Installing Discord ...." ${W}
             cat > $directory/.bashrc <<- EOF
-            wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Apps/webcord.sh
+            wget -nv https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Apps/webcord.sh
             bash webcord.sh 
             sleep 2
             exit
@@ -386,7 +386,7 @@ EOF
             echo 
             echo ${G}"Installing Vscode ...." ${W}
             cat > $directory/.bashrc <<- EOF
-            wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Apps/vscodefix.sh
+            wget -nv https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Apps/vscodefix.sh
             bash vscodefix.sh 
             sleep 2
             exit
