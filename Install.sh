@@ -347,8 +347,8 @@ apps() {
             echo 
 EOF
             $login 
-            echo "user_pref("media.cubeb.sandbox", false); 
-            user_pref("security.sandbox.content.level", 1);" >> $directory/.mozilla/firefox/*release/prefs.js
+            echo 'user_pref("sandbox.cubeb", false); 
+            user_pref("security.sandbox.content.level", 1);' >> $directory/.mozilla/firefox/*release/prefs.js
             rm -rf $directory/.bashrc 
             clear 
         else 
