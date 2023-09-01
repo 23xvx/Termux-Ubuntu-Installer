@@ -59,14 +59,34 @@ choose_desktop() {
     echo " 5) MacOS (XFCE with custom themes)"
     echo " 6) Cinnamon "
     echo " 7) Budgie "
-    echo ${C}"Please press number 1/2/3 to choose your desktop "
-    echo ${C}"If you just want a CLI please press enter"${W}
+    echo ${C}"Please press number 1-7 to choose your desktop "
+    echo ${C}"If you don't want a desktop please just enter '${W}CLI${C}'"${W}
     read desktop
     sleep 1
-    if [[ "$desktop" =~ ^([8])$ ]]; then
-        echo ${R}"Are you seroius? There isn't a desktop for your choice !"
-        exit 1
-    fi
+    if [[ "$desktop" =~ ^([1])$ ]]; then
+        choice 
+    elif [[ "$desktop" =~ ^([2])$ ]]; then
+        choice 
+    elif [[ "$desktop" =~ ^([3])$ ]]; then
+        choice 
+    elif [[ "$desktop" =~ ^([4])$ ]]; then
+        choice 
+    elif [[ "$desktop" =~ ^([5])$ ]]; then
+        choice 
+    elif [[ "$desktop" =~ ^([6])$ ]]; then
+        choice 
+    elif [[ "$desktop" =~ ^([7])$ ]]; then
+        choice
+    elif [[ "$desktop" == "CLI" ]]; then
+        echo ${G}"No desktop environment will be installed"
+    else 
+        echo ${R}"Invalid answer"
+        sleep 1 
+        choose_desktop
+    fi 
+}
+
+choice() {
     echo ""
     echo ${G}"Your choice is $desktop"
     echo ${G}"Is that your choice ? (y/n)"${W}
