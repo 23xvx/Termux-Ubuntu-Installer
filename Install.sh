@@ -163,10 +163,6 @@ configures() {
     cat > $PD/$ds_name/root/.bashrc <<- EOF
     apt-get update
     apt install sudo nano udisks2 wget -nv openssl neofetch git -y
-    rm -rf /var/lib/dpkg/info/udisks2.postinst
-    echo "" >> /var/lib/dpkg/info/udisks2.postinst
-    dpkg --configure -a
-    apt-mark hold udisks2
     exit
     echo
 EOF
