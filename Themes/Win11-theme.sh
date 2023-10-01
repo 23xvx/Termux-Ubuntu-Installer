@@ -22,7 +22,7 @@ git clone https://github.com/aunetx/blur-my-shell
 cd blur-my-shell
 make install
 cd 
-git clone https://gitlab.com/arcmenu/ArcMenu
+git clone --single-branch --branch gnome-42/43/44 https://gitlab.com/arcmenu/ArcMenu.git
 cd ArcMenu
 make install 
 cd 
