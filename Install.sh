@@ -15,7 +15,7 @@ requirements() {
     echo ${G}"This is a script to install ubuntu 23.04 (Lunar) in proot-distro"
     sleep 1 
     echo ${G}"Installing required packages..."${W}
-    pkg install pulseaudio proot-distro wget -nv -y
+    pkg install pulseaudio proot-distro wget  -y
     if [ ! -d '/data/data/com.termux/files/home/storage' ]; then
         echo ${C}"Please allow storage permission"${W}
         termux-setup-storage
