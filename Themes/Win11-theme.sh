@@ -68,5 +68,5 @@ dbus-launch gsettings set org.gnome.shell.extensions.arcmenu menu-button-icon 'C
 dbus-launch gsettings set org.gnome.shell.extensions.blur-my-shell.dash-to-dock override-background false
 dbus-launch gsettings set org.gnome.shell.extensions.blur-my-shell.dash-to-dock brightness 1.0
 dbus-launch gsettings set org.gnome.shell.extensions.blur-my-shell.dash-to-dock sigma 10
-dbus-launch gsettings set org.gnome.shell.extensions.date-menu-formatter pattern 'MM/dd/yy\nHHN：mm aa'
+dbus-launch gsettings set org.gnome.shell.extensions.date-menu-formatter pattern 'MM/dd/yy\nHHN:mm aa'
 dbus-launch gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/pictures/win11.jpg'
