@@ -2,7 +2,6 @@
 sudo apt-get update
 sudo apt install gnome-shell gnome-shell-extension-ubuntu-dock gnome-shell-extensions gnome-terminal gnome-session -y
 sudo apt install yaru-theme-gtk yaru-theme-icon gnome-tweaks dbus-x11 nautilus tigervnc-standalone-server -y
-sudo apt autoremove -y 
 clear 
 echo "Please enter your vnc password"
 vncserver -xstartup /usr/bin/gnome-session 
