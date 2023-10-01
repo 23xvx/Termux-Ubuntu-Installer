@@ -14,10 +14,6 @@ git clone https://github.com/vinceliuice/Fluent-gtk-theme
 cd Fluent-gtk-theme
 ./install.sh
 cd 
-git clone https://github.com/mrbvrz/segoe-ui-linux
-cd segoe-ui-linux
-./install.sh
-cd 
 git clone https://github.com/home-sweet-gnome/dash-to-panel
 cd dash-to-panel 
 make install 
