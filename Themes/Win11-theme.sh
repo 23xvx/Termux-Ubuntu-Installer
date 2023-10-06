@@ -6,6 +6,8 @@ W="$(printf '\033[1;37m')"
 echo ${G}"Installing Requriements..."${W}
 sudo apt install cmake build-essential gettext dmz-cursor-theme -y 
 mkdir ~/.local/share/gnome-shell/extensions/
+
+#themes 
 git clone https://github.com/yeyushengfan258/Win11-icon-theme
 cd Win11-icon-theme
 ./install.sh
@@ -14,13 +16,15 @@ git clone https://github.com/vinceliuice/Fluent-gtk-theme
 cd Fluent-gtk-theme
 ./install.sh
 cd 
-git clone https://github.com/home-sweet-gnome/dash-to-panel
-cd dash-to-panel 
-make install 
+
+#extensions 
+wget -nv https://github.com/home-sweet-gnome/dash-to-panel/releases/download/v56/dash-to-panel@jderose9.github.com_v56.zip 
+unzip dash-to-panel@jderose9.github.com_v56.zip -d ~/.local/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com
 cd 
-git clone https://github.com/aunetx/blur-my-shell
-cd blur-my-shell
-make install
+wget -nv https://github.com/aunetx/blur-my-shell/archive/refs/tags/v47.tar.gz
+tar -xpf v47.tar.gz 
+cd blur-my-shell-47
+make install 
 cd 
 git clone --single-branch --branch gnome-42/43/44 https://gitlab.com/arcmenu/ArcMenu.git
 cd ArcMenu
@@ -30,9 +34,10 @@ git clone https://github.com/marcinjakubowski/date-menu-formatter
 mv date-menu-formatter .local/share/gnome-shell/extensions/date-menu-formatter@marcinjakubowski.github.com/
 cd 
 mkdir -p /usr/share/pictures
-wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Images/win11.jpg -P /usr/share/pictures/
-wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Images/win11logo.png -P /usr/share/pictures/
+wget -nv https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Images/win11.jpg -P /usr/share/pictures/
+wget -nv https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Images/win11logo.png -P /usr/share/pictures/
 
+#applying themes 
 echo ${G}"Applying Themes...."${W}
 dbus-launch gsettings set org.gnome.desktop.interface icon-theme "Win11-dark"
 dbus-launch gsettings set org.gnome.desktop.interface gtk-theme "Fluent-Dark"
