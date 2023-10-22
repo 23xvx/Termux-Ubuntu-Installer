@@ -14,6 +14,7 @@ sleep 5
 vncstop 
 sleep 4
 vncstart
+sleep 4
 dbus-launch xfconf-query -c xsettings -p /Net/ThemeName -s "Yaru-dark"
 sleep 4
 dbus-launch xfconf-query -c xfwm4 -p /general/theme -s "Yaru-dark"
