@@ -162,7 +162,7 @@ configures() {
     echo ${G}"Installing requirements in ubuntu..."${W}
     cat > $PD/$ds_name/root/.bashrc <<- EOF
     apt-get update
-    apt install sudo nano udisks2 wget -nv openssl neofetch git -y
+    apt install sudo nano udisks2 wget openssl neofetch git -y
     exit
     echo
 EOF
