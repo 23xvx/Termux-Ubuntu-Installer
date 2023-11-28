@@ -34,15 +34,14 @@ git clone https://github.com/marcinjakubowski/date-menu-formatter
 mv date-menu-formatter .local/share/gnome-shell/extensions/date-menu-formatter@marcinjakubowski.github.com/
 cd 
 mkdir -p /usr/share/pictures
-wget -nv https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Images/win11.jpg -P /usr/share/pictures/
-wget -nv https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Images/win11logo.png -P /usr/share/pictures/
+wget -q https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Images/win11.jpg -P /usr/share/pictures/
+wget -q https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Images/win11logo.png -P /usr/share/pictures/
 
 #applying themes 
 echo ${G}"Applying Themes...."${W}
 dbus-launch gsettings set org.gnome.desktop.interface icon-theme "Win11-dark"
 dbus-launch gsettings set org.gnome.desktop.interface gtk-theme "Fluent-Dark"
 dbus-launch gsettings set org.gnome.desktop.interface cursor-theme 'DMZ-White'
-dbus-launch gsettings set org.gnome.desktop.interface font-name 'Segoe UI 11'
 dbus-launch gnome-extensions disable ubuntu-dock@ubuntu.com
 dbus-launch gnome-extensions enable dash-to-panel@jderose9.github.com
 dbus-launch gnome-extensions enable arcmenu@arcmenu.com
