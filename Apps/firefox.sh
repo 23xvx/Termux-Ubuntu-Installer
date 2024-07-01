@@ -1,10 +1,6 @@
 #!/bin/sh 
-#source by udroid 
-apt update 
-sudo apt install -y firefox
-rm -rf /etc/apt/preferences.d/fire*
-sudo apt remove firefox -y
-sudo apt update && sudo apt install firefox software-properties-common -y
+# source by udroid 
+sudo apt update 
 sudo add-apt-repository --yes ppa:mozillateam/ppa
 echo '
 Package: *

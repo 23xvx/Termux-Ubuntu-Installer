@@ -8,7 +8,6 @@ C="$(printf '\033[1;36m')"
 Git_Cloning(){
 clear 
 echo ${G}"Installing requirements....."${W}
-sleep 1 
 sudo apt install git wget rofi plank gtk2-engines-murrine unzip dconf-cli xfce4-panel-profiles sassc libxml2-utils libglib2.0-dev-bin bzip2 nautilus -y 
 clear  
 echo ${G}"Cloning repositories....."${W}
@@ -53,9 +52,9 @@ cd ~/rofi
 cd  
 sleep 2 
 cp ~/.local/share/backgrounds/* /usr/share/backgrounds/
-if [[ ! -d "/usr/share/icons/WhiteSur-cursors" ]]; then 
+[[ ! -d "/usr/share/icons/WhiteSur-cursors" ]] && {
     cp -r ~/.local/share/icons/WhiteSur-cursors /usr/share/icons/
-fi 
+}
 clear 
 }
 
@@ -103,10 +102,10 @@ cp  ~/xpple_menu/applications/launchpad.desktop /usr/share/applications/
 mv ~/plank/launchers ~/.config/plank/dock1/
 mv ~/xpple_menu/applications ~/.local/share/
 mv ~/plank/plank.desktop ~/.config/autostart
-if [[ ! -d "$HOME/.local/share/icons" ]]; then 
+[[ ! -d "$HOME/.local/share/icons" ]] && {
     mkdir $HOME/.local/share/icons
     cp -r /usr/share/icons/WhiteSur $HOME/.local/share/icons/
-fi 
+}
 cp ~/plank/rofi/launchpad.svg ~/.local/share/icons/WhiteSur/ 
 mv ~/plank/rofi/style-1.rasi ~/.config/rofi/launchers/type-3/style-1.rasi
 mv ~/plank/rofi/launcher.sh ~/.config/rofi/launchers/type-3/launcher.sh

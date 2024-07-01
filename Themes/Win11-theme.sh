@@ -18,15 +18,15 @@ cd Fluent-gtk-theme
 cd 
 
 #extensions 
-wget -nv https://github.com/home-sweet-gnome/dash-to-panel/releases/download/v56/dash-to-panel@jderose9.github.com_v56.zip 
-unzip dash-to-panel@jderose9.github.com_v56.zip -d ~/.local/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com
+wget -nv https://github.com/home-sweet-gnome/dash-to-panel/releases/download/v62/dash-to-panel@jderose9.github.com_v62.zip 
+unzip dash-to-panel@jderose9.github.com_v62.zip -d ~/.local/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com
 cd 
-wget -nv https://github.com/aunetx/blur-my-shell/archive/refs/tags/v47.tar.gz
-tar -xpf v47.tar.gz 
-cd blur-my-shell-47
+wget -nv https://github.com/aunetx/blur-my-shell/archive/refs/tags/v62.tar.gz
+tar -xpf v62.tar.gz 
+cd blur-my-shell-62
 make install 
 cd 
-git clone --single-branch --branch gnome-42/43/44 https://gitlab.com/arcmenu/ArcMenu.git
+git clone https://gitlab.com/arcmenu/ArcMenu.git
 cd ArcMenu
 make install 
 cd 

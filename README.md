@@ -1,19 +1,13 @@
 ### Termux Ubuntu Installer
 
-### Not Maintained
-
- <p>A script to install Ubuntu Lunar (23.04) in Termux with different desktops,
+ <p>A script to install Ubuntu Noble (24.04) in Termux with different desktops,
  including GNOME , XFCE , MATE , Cinnamon and Budgie desktop . </p>
  <p>Also, it provides different desktops with custom theme.</p>
 
-- Sources from [Ubuntu](https://cloud-images.ubuntu.com)
-
 ### Notice : Still fixing bugs !!!!
 
-
-
 ### To Do : 
-1) Adding more themes (MacOS, Windows)
+1) Add desktops and themes for KDE
 
 ### Desktops :
 
@@ -51,6 +45,10 @@
 <p align="center"><img src="./Images/macos.png"></p>
 
 
+### Installation
+
+<p> Paste this in termux </p>
+
 ```bash 
 apt install wget -y 
 wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Install.sh
@@ -58,7 +56,7 @@ bash Install.sh
 ```
 
 ### Known Bugs :
-1) Cannot move or copy files in gnome/cinnamon file manager</br>Solution : Please process in the terminal 
+- 1) GNOME and Budgie desktop takes long time to startup
 
 ### Third party applications :
 - [Webcord](https://github.com/SpacingBat3/WebCord) MIT license 

@@ -4,15 +4,19 @@ sudo apt install gnome-shell gnome-shell-extension-ubuntu-dock gnome-shell-exten
 sudo apt install yaru-theme-gtk yaru-theme-icon gnome-tweaks dbus-x11 nautilus tigervnc-standalone-server -y
 clear 
 echo "Please enter your vnc password"
-vncserver -xstartup /usr/bin/gnome-session 
+for file in $(find /usr -type f -iname "*login1*"); do 
+    rm -rf $file
+done 
 sleep 4
 vncserver -kill :1
 sleep 2 
 echo "
 #!/bin/bash
-export XDG_CURRENT_DESKTOP="GNOME"
+export XDG_SESSION_TYPE=x11
+export XDG_CURRENT_DESKTOP=GNOME
+export GNOME_SHELL_SESSION_MODE=ubuntu
 service dbus start
-gnome-shell --x11 " >> $HOME/.vnc/xstartup
+dbus-launch gnome-session" >> $HOME/.vnc/xstartup
 echo "vncserver " >> /usr/local/bin/vncstart
 echo "vncserver -kill :* ; rm -rf /tmp/.X1-lock ; rm -rf /tmp/.X11-unix/X1" >> /usr/local/bin/vncstop
 chmod +x $HOME/.vnc/xstartup
