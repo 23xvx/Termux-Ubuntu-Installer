@@ -1,6 +1,7 @@
 #!/bin/sh 
 # source by udroid 
-sudo apt update 
+sudo apt update
+sudo apt install gpg  software-properties-common -y
 sudo add-apt-repository --yes ppa:mozillateam/ppa
 echo '
 Package: *
