@@ -5,7 +5,7 @@ W="$(printf '\033[1;37m')"
 
 echo ${G}"Installing Requriements..."${W}
 sudo apt install cmake build-essential gettext dmz-cursor-theme -y 
-mkdir ~/.local/share/gnome-shell/extensions/
+mkdir -p ~/.local/share/gnome-shell/extensions/
 
 #themes 
 git clone https://github.com/yeyushengfan258/Win11-icon-theme
