@@ -1,6 +1,6 @@
 #!/bin/bash
-sudo apt-get update 
-sudo apt-get install xfce4 xfce4-terminal dbus-x11 tigervnc-standalone-server xfce4-appmenu-plugin -y
+sudo apt update 
+sudo apt install xfce4 xfce4-terminal dbus-x11 tigervnc-standalone-server xfce4-appmenu-plugin -y
 echo "service dbus start ; vncserver -xstartup /usr/bin/startxfce4" >> /usr/local/bin/vncstart
 echo "vncserver -kill :* ; rm -rf /tmp/.X1-lock ; rm -rf /tmp/.X11-unix/X1" >> /usr/local/bin/vncstop
 chmod +x /usr/local/bin/vncstart 

@@ -79,10 +79,10 @@ choose_desktop() {
     echo " 1) XFCE (Light Weight)"
     echo " 2) GNOME (Default desktop of ubuntu) "
     echo " 3) MATE "
-    echo " 4) Windows 11 (GNOME with custom themes)"
-    echo " 5) MacOS (XFCE with custom themes)"
-    echo " 6) Cinnamon "
-    echo " 7) Budgie "
+    echo " 4) Windows 10 (KDE with custom themes)"
+    echo " 5) Windows 11 (GNOME with custom themes)"
+    echo " 6) MacOS (XFCE with custom themes)"
+    echo " 7) Cinnamon "
     echo ${C}"Please enter number 1-7 to choose your desktop "
     echo ${C}"If you don't want a desktop please just enter '${W}CLI${C}'"${W}
     read desktop
@@ -111,9 +111,9 @@ EOF
 # Ask if setup a user
 user() {
     clear
-    if ask ${C}"Do you want to add a user"; then
+    if ask ${C}"Do you want to add a user"${W}; then
         echo ""
-        echo ${C}"Please enter a username "${W}
+        echo ${C}"Please enter a username : "${W}
         read username
         directory=$PD/$ds_name/home/$username
         login="proot-distro login ubuntu --user $username"
@@ -137,7 +137,7 @@ EOF
         rm -rf $PD/$ds_name/root/.bashrc
         sleep 2
         [[ ! -d $directory ]] && {
-            echo -e ${R}"Failed to add user\nKeep installation in root"
+            echo -e ${R}"Failed to add user\nKeep installation as root"
             directory=$PD/$ds_name/root
             login="proot-distro login ubuntu"
         }
@@ -159,10 +159,10 @@ install_desktop() {
         1) xfce_mode ;;
         2) gnome_mode ;;
         3) mate_mode ;;
-        4) gnome_mode ; windows_theme ;;
-        5) xfce_mode ; macos_theme ;;
-        6) cinnamon_mode ;;
-        7) budgie_mode ;;
+        4) kde_mode ; win10_theme ;;
+        5) gnome_mode ; win11_theme ;;
+        6) xfce_mode ; macos_theme ;;
+        7) cinnamon_mode ;;
         *) echo ${G}"No desktop selected , skipping ...." ; desk=false ; sleep 2 ;;
     esac
     
@@ -194,6 +194,13 @@ mate_mode() {
     rm -rf $directory/mate.sh
 }
 
+kde_mode() {
+    echo ${G}"Installing KDE Desktop..."${W}
+    download_script "https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/kde.sh" $directory silence
+    $login -- /bin/bash kde.sh
+    rm -rf $directory/kde.sh
+}
+
 cinnamon_mode() {
     echo ${G}"Installing Cinnamon Desktop..."${W}
     download_script "https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/cinnamon.sh" $directory silence
@@ -201,14 +208,13 @@ cinnamon_mode() {
     rm -rf $directory/cinnamon.sh
 }
 
-budgie_mode() {
-    echo ${G}"Installing Budgie Desktop..."${W}
-    download_script "https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Desktop/budgie.sh" $directory silence
-    $login -- /bin/bash budgie.sh
-    rm -rf $directory/budgie.sh
+win10_theme() {
+    download_script "https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Themes/Win10-theme.sh" $directory silence
+    $login -- /bin/bash Win10-theme.sh
+    rm -rf $directory/Win10-theme.sh
 }
 
-windows_theme() {
+win11_theme() {
     download_script "https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Themes/Win11-theme.sh" $directory silence
     $login -- /bin/bash Win11-theme.sh
     rm -rf $directory/Win11-theme.sh
@@ -225,7 +231,7 @@ apps() {
     clear
 
     # Install firefox
-    if ask ${C}"Install Firefox Web Broswer?"; then
+    if ask ${C}"Install Firefox Web Broswer?"${W}; then
         echo -e ${G}"\nInstalling Firefox Broswer ...." ${W}
         download_script "https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Apps/firefox.sh" $directory silence
         [[ -f $directory/.bashrc ]] && mv $directory/.bashrc $directory/.bak
@@ -255,7 +261,7 @@ EOF
     fi
 
     # Install discord(webcord)
-    if ask ${C}"Install Discord (Webcord)?"${Y}; then
+    if ask ${C}"Install Discord (Webcord)?"${W}; then
         echo -e ${G}"\nInstalling Discord ...." ${W}
         download_script "https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Apps/webcord.sh" $directory silence
         $login -- /bin/bash webcord.sh
@@ -267,7 +273,7 @@ EOF
     fi
 
     # Install VScode
-    if ask ${C}"Install VScode?"${Y}; then
+    if ask ${C}"Install VScode?"${W}; then
         echo -e ${G}"\nInstalling Vscode ...." ${W}
         download_script "https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Apps/vscodefix.sh" $directory silence
         $login -- /bin/bash vscodefix.sh

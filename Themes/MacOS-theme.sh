@@ -23,39 +23,19 @@ clear
 
 Installing_Theme(){
 echo ${G}"Installing gtk theme ..."
-cd ~/WhiteSur-gtk-theme 
-./install.sh 
-cd
-sleep 2 
-clear 
+cd ~/WhiteSur-gtk-theme ; ./install.sh ; cd ; clear
 echo ${G}"Installing icon theme ..."${W}
-cd ~/WhiteSur-icon-theme 
-./install.sh 
-cd 
-sleep 2 
-clear 
+cd ~/WhiteSur-icon-theme ; ./install.sh ; cd ; clear 
 echo ${G}"Installing cursor theme ..."${W}
-cd ~/WhiteSur-cursors
-./install.sh
-cd
-sleep 2 
-clear 
+cd ~/WhiteSur-cursors ; ./install.sh ; cd ; clear
 echo ${G}"Installing background ..."${W}
-cd ~/WhiteSur-wallpapers
-./install-wallpapers.sh 
-cd 
-sleep 2 
-clear 
+cd ~/WhiteSur-wallpapers ; ./install-wallpapers.sh ; cd ; clear 
 echo ${G}"Installing rofi theme ...."${W}
-cd ~/rofi 
-./setup.sh
-cd  
-sleep 2 
+cd ~/rofi ; ./setup.sh ; cd ; clear  
 cp ~/.local/share/backgrounds/* /usr/share/backgrounds/
 [[ ! -d "/usr/share/icons/WhiteSur-cursors" ]] && {
     cp -r ~/.local/share/icons/WhiteSur-cursors /usr/share/icons/
-}
-clear 
+} 
 }
 
 Applying_Theme(){
@@ -72,7 +52,7 @@ sleep 2
 dbus-launch xfconf-query -c xsettings -p /Gtk/CursorThemeName -s "WhiteSur-cursors"
 sleep 2
 dbus-launch xfconf-query -c xfce4-desktop -p $(dbus-launch xfconf-query -c xfce4-desktop -l | grep last-image) -s $HOME/.local/share/backgrounds/WhiteSur-light.jpg
-sleep 5
+sleep 10
 dbus-launch xfconf-query -c xfwm4 -p /general/show_dock_shadow -s false
 sleep 2
 rm -rf .config/rofi/config.rasi
@@ -83,7 +63,7 @@ sleep 2
 dbus-launch xfconf-query -c xsettings -p /Net/IconThemeName -s  "WhiteSur-dark"
 sleep 2
 dbus-launch xfconf-query -c xfce4-desktop -p $(dbus-launch xfconf-query -c xfce4-desktop -l | grep last-image) -s $HOME/.local/share/backgrounds/WhiteSur-light.jpg
-sleep 5
+sleep 10
 vncstop 
 mkdir -p ~/.local/share/xfce4-panel-profiles/
 mkdir -p ~/.config/autostart
@@ -95,7 +75,7 @@ cp -r ~/WhiteSur-gtk-theme/src/other/plank/theme-* ~/.local/share/plank/themes
 Applying_Plank(){
 clear 
 echo ${G}"Downloading requried file..."${W}
-cd 
+cd
 wget https://github.com/23xvx/Termux-Ubuntu-Installer/raw/main/Themes/macos.zip
 unzip macos.zip 
 rm -rf macos.zip 
@@ -121,7 +101,7 @@ mkdir -p /usr/share/menus
 mv ~/xpple_menu/xpple.menu /usr/share/menus/
 dbus-launch xfconf-query -c xfwm4 -p /general/button_layout -s "CHM|"
 mv ~/panel/config.txt $HOME/
-tar --sort=name --format ustar -cvjhf ubuntu.tar.bz2 config.txt 
+tar --sort=name --format ustar -cvjhf ubuntu.tar.bz2 config.txt
 dbus-launch xfce4-panel-profiles load ubuntu.tar.bz2 
 sleep 2
 vncstop 

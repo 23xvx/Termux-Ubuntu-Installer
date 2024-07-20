@@ -1,7 +1,7 @@
 ### Termux Ubuntu Installer
 
  <p>A script to install Ubuntu Noble (24.04) in Termux with different desktops,
- including GNOME , XFCE , MATE , Cinnamon and Budgie desktop . </p>
+ including GNOME , XFCE , MATE , Cinnamon and KDE desktop . </p>
  <p>Also, it provides different desktops with custom theme.</p>
 
 ### Notice : Still fixing bugs !!!!
@@ -31,11 +31,6 @@
 <p align="center"><img src="./Images/cinnamon.png"></p>
 </details>
 
-<details></br>
-<summary><b>Budgie Desktop</b></summary>
-<p align="center"><img src="./Images/budgie.png"></p>
-</details>
-
 ### Themes :
 
 - <b>Win11 : (GNOME)</b>
@@ -56,7 +51,7 @@ bash Install.sh
 ```
 
 ### Known Bugs :
-- 1) GNOME and Budgie desktop takes long time to startup
+- 1) GNOME desktop takes long time to startup
 
 ### Third party applications :
 - [Webcord](https://github.com/SpacingBat3/WebCord) MIT license 
@@ -66,4 +61,5 @@ bash Install.sh
 
 ### Credits 
 - Win11 themes https://youtu.be/x7LEHV4LRpU
-- MacOS themes https://youtu.be/xMeeqzoGI_Y 
+- MacOS themes https://youtu.be/xMeeqzoGI_Y
+- Win10 themes https://youtu.be/UZx-F-CSIaw
