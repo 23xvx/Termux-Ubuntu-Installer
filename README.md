@@ -1,6 +1,7 @@
 ### Termux Ubuntu Installer
 
 ### TEST UPDATE FOR WIN10 ! 
+- Please report any bugs if you notice
 
  <p>A script to install Ubuntu Noble (24.04) in Termux with different desktops,
  including GNOME , XFCE , MATE , Cinnamon and KDE desktop . </p>
@@ -41,6 +42,8 @@
 - <b>MacOS : (XFCE)</b>
 <p align="center"><img src="./Images/macos.png"></p>
 
+- <b>Win10 : (KDE)</b>
+<p align="center"> # wait for screenshot upload</p>
 
 ### Installation
 
@@ -53,7 +56,7 @@ bash Install.sh
 ```
 
 ### Known Bugs :
-- 1) GNOME desktop takes long time to startup
+1) GNOME desktop takes long time to startup
 
 ### Third party applications :
 - [Webcord](https://github.com/SpacingBat3/WebCord) MIT license 
