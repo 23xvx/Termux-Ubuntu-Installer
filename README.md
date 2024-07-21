@@ -1,6 +1,6 @@
 ### Termux Ubuntu Installer
 
-### TEST UPDATE FOR WIN10 ! 
+### TEST UPDATE FOR WIN10 THEME! 
 - Please report any bugs if you notice
 
  <p>A script to install Ubuntu Noble (24.04) in Termux with different desktops,
@@ -10,7 +10,8 @@
 ### Notice : Still fixing bugs !!!!
 
 ### To Do : 
-1) Add desktops and themes for KDE
+1) Check bugs in KDE desktop
+2) Add some customizations
 
 ### Desktops :
 
@@ -43,7 +44,7 @@
 <p align="center"><img src="./Images/macos.png"></p>
 
 - <b>Win10 : (KDE)</b>
-<p align="center"> # wait for screenshot upload</p>
+<p align="center"><img src="./Images/win10.png"></p>
 
 ### Installation
 
