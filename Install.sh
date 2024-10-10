@@ -100,7 +100,7 @@ configures() {
     echo ${G}"Installing requirements in ubuntu..."${W}
     cat > $PD/$ds_name/root/.bashrc <<- EOF
     apt-get update
-    apt install sudo nano wget openssl git -y
+    apt install sudo nano wget openssl git apt-utils libreadline-dev -y
     exit
     echo
 EOF
