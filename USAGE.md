@@ -38,6 +38,7 @@ dbus-launch xfce4-session
 
 - GNOME (including win11)
 <p> shell version (quicker to startup,stable) </p>
+
 ```bash
 export XDG_SESSION_TYPE=x11
 export XDG_CURRENT_DESKTOP=GNOME
@@ -45,6 +46,7 @@ service dbus start
 dbus-launch gnome-shell
 ```
 <p>session version (unstable,icons applied correctly)</p>
+
 ```bash
 export XDG_SESSION_TYPE=x11
 export XDG_CURRENT_DESKTOP=GNOME
