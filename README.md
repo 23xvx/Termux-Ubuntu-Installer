@@ -1,11 +1,8 @@
 ### Termux Ubuntu Installer
 
-### TEST UPDATE FOR WIN10 THEME! 
-- Please report any bugs if you notice
-
- <p>A script to install Ubuntu Noble (24.04) in Termux with different desktops,
- including GNOME , XFCE , MATE , Cinnamon and KDE desktop . </p>
- <p>Also, it provides different desktops with custom theme.</p>
+<p>A script to install Ubuntu Noble (24.04) in Termux with different desktops,
+including GNOME , XFCE , MATE , Cinnamon and KDE desktop . </p>
+<p>Also, it provides different desktops with custom theme.</p>
 
 ### Notice : Still fixing bugs !!!!
 
@@ -56,8 +53,18 @@ wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Instal
 bash Install.sh 
 ```
 
+### Using ubuntu (if you have installed a desktop)
+- [USAGE.md](https://github.com/23xvx/Termux-Ubuntu-Installer/blob/main/USAGE.md)
+
 ### Known Bugs :
 1) GNOME desktop takes long time to startup
+2) Win11 desktop may result in crashing
+
+<p> Fix 1 and 2: Change startup method to `gnome-shell` instead of `gnome-session` </p>
+
+```bash
+sed -i 's/gnome-session/gnome-shell/g' ~/.vnc/xstartup
+```
 
 ### Third party applications :
 - [Webcord](https://github.com/SpacingBat3/WebCord) MIT license 
