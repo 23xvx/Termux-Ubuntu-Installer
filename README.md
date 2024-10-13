@@ -60,7 +60,7 @@ bash Install.sh
 1) GNOME desktop takes long time to startup
 2) Win11 desktop may result in crashing
 
-<p> Fix 1 and 2: Change startup method to `gnome-shell` instead of `gnome-session` </p>
+- <p> Fix 1 and 2: Change startup method to `gnome-shell` instead of `gnome-session` </p>
 
 ```bash
 sed -i 's/gnome-session/gnome-shell/g' ~/.vnc/xstartup

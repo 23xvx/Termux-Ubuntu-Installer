@@ -1,4 +1,4 @@
-### Using desktops
+### <p align="center"> **Using desktop** </p>
 
 # VNC 
 1. Install a vncviewer app to access desktop installed
@@ -29,14 +29,16 @@ start-ubuntu
 ```bash
 export DISPLAY=:1
 export PULSE_SERVER=127.0.0.1
+# start desktop using commands in sections below
+# to stop the desktops just use Ctrl+C 
 ```
 
-- XFCE (including macos)
+- **XFCE** (including macos)
 ```bash
 dbus-launch xfce4-session
 ```
 
-- GNOME (including win11)
+- **GNOME** (including win11)
 <p> shell version (quicker to startup,stable) </p>
 
 ```bash
@@ -54,18 +56,18 @@ service dbus start
 dbus-launch gnome-session
 ```
 
-- MATE
+- **MATE**
 ```bash
 dbus-launch mate-session
 ```
 
-- KDE (including win10)
+- **KDE** (including win10)
 ```bash
 service dbus start
 dbus-launch startplasma-x11
 ```
 
-- Cinnamon
+- **Cinnamon**
 ```bash
 service dbus start
 dbus-launch cinnamon-session
