@@ -19,7 +19,7 @@ cd
 #extensions
 wget -q --show-progress https://github.com/home-sweet-gnome/dash-to-panel/releases/download/v62/dash-to-panel@jderose9.github.com_v62.zip 
 gnome-extensions install -f -q dash-to-panel@jderose9.github.com_v62.zip
-wget -q --show-progress https://github.com/aunetx/blur-my-shell/releases/download/v62/blur-my-shell@aunetx.shell-extension.zip
+wget -q --show-progress https://github.com/aunetx/blur-my-shell/releases/download/v67/blur-my-shell@aunetx.shell-extension.zip
 gnome-extensions install -f -q blur-my-shell@aunetx.shell-extension.zip
 wget -q --show-progress https://extensions.gnome.org/extension-data/arcmenuarcmenu.com.v57.shell-extension.zip
 gnome-extensions install -f -q arcmenuarcmenu.com.v57.shell-extension.zip
