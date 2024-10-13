@@ -38,7 +38,7 @@ export PULSE_SERVER=127.0.0.1
 dbus-launch xfce4-session
 ```
 
-- GNOME (including win11)
+- **GNOME** (including win11)
 <p> - shell version (quicker to startup,stable) </p>
 
 ```bash
