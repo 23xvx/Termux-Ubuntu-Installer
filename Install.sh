@@ -240,9 +240,9 @@ apps() {
         clear 
         vncstart 
         sleep 4
-        DISPLAY=:1 firefox &
+        DISPLAY=:1 firefox-esr &
         sleep 10
-        pkill -f firefox
+        pkill -f firefox-esr
         vncstop
         sleep 2
         exit 
