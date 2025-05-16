@@ -9,6 +9,7 @@ including GNOME , XFCE , MATE , Cinnamon and KDE desktop . </p>
 ### To Do : 
 1) Check bugs in KDE desktop
 2) Add some customizations
+3) -If error happens delete Termux ap data for fresh install
 
 ### Desktops :
 
