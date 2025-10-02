@@ -4,7 +4,7 @@
 /panels/panel-0/autohide-behavior uint32 0
 /panels/panel-0/background-alpha uint32 80
 /panels/panel-0/background-style uint32 0
-/panels/panel-0/disable-struts false
+/panels/panel-0/enable-struts true
 /panels/panel-0/enter-opacity uint32 100
 /panels/panel-0/leave-opacity uint32 100
 /panels/panel-0/length uint32 100
@@ -21,7 +21,7 @@
 /plugins/plugin-1/button-title 'Applications'
 /plugins/plugin-1/custom-menu true
 /plugins/plugin-1/custom-menu-file '/usr/share/menus/xpple.menu'
-/plugins/plugin-1/show-button-title false 
+/plugins/plugin-1/show-button-title false
 /plugins/plugin-1/show-generic-names false
 /plugins/plugin-1/show-menu-icons true
 /plugins/plugin-1/show-tooltips false
@@ -39,11 +39,12 @@
 /plugins/plugin-3/digital-format '%_d %b  %R'
 /plugins/plugin-3/digital-layout uint32 3
 /plugins/plugin-3/digital-time-font 'Sans 11'
-/plugins/plugin-3/digital-time-format '%_H:%M' 
+/plugins/plugin-3/digital-time-format '%_H:%M'
 /plugins/plugin-4 'separator'
 /plugins/plugin-4/expand true
 /plugins/plugin-4/style uint32 0
 /plugins/plugin-5 'notification-plugin'
+/plugins/plugin-6/digital-layout uint32 3
 /plugins/plugin-7 'appmenu'
 /plugins/plugin-7/plugins/plugin-7/bold-application-name true
 /plugins/plugin-7/plugins/plugin-7/compact-mode false
@@ -57,4 +58,3 @@
 /plugins/plugin-9 'separator'
 /plugins/plugin-9/expand false
 /plugins/plugin-9/style uint32 0
-

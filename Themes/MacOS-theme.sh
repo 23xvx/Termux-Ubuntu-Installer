@@ -8,7 +8,8 @@ C="$(printf '\033[1;36m')"
 Git_Cloning(){
 clear 
 echo ${G}"Installing requirements....."${W}
-sudo apt install git wget rofi plank gtk2-engines-murrine unzip dconf-cli xfce4-panel-profiles sassc libxml2-utils libglib2.0-dev-bin bzip2 nautilus -y 
+sudo apt install git wget rofi plank gtk2-engines-murrine unzip dconf-cli xfce4-panel-profiles sassc libxml2-utils libglib2.0-dev-bin bzip2 -y 
+sudo apt install pulseaudio -y
 clear  
 echo ${G}"Cloning repositories....."${W}
 cd 
@@ -50,15 +51,12 @@ sleep 2
 dbus-launch xfconf-query -c xsettings -p /Net/IconThemeName -s  "WhiteSur-dark"
 sleep 2
 dbus-launch xfconf-query -c xsettings -p /Gtk/CursorThemeName -s "WhiteSur-cursors"
-sleep 2
-dbus-launch xfconf-query -c xfce4-desktop -p $(dbus-launch xfconf-query -c xfce4-desktop -l | grep last-image) -s $HOME/.local/share/backgrounds/WhiteSur-light.jpg
 sleep 10
 dbus-launch xfconf-query -c xfwm4 -p /general/show_dock_shadow -s false
 sleep 2
 rm -rf .config/rofi/config.rasi
 sleep 1
-# I don't know why icon theme sometimes not being applied, so I have to apply it twice 
-vncstart
+vncstart # Apply icons and background when vncserver has started
 sleep 2
 dbus-launch xfconf-query -c xsettings -p /Net/IconThemeName -s  "WhiteSur-dark"
 sleep 2
@@ -104,6 +102,13 @@ mv ~/panel/config.txt $HOME/
 tar --sort=name --format ustar -cvjhf ubuntu.tar.bz2 config.txt
 dbus-launch xfce4-panel-profiles load ubuntu.tar.bz2 
 sleep 2
+# FIX appmenu plugin
+cat > ~/.config/gtk-3.0/gtk.css <<- EOF
+/* appmenu workaround fix */
+.-vala-panel-appmenu-core > * {
+    min-width: 1500px;
+}
+EOF
 vncstop 
 clear 
 }
