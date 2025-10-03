@@ -66,6 +66,15 @@ bash Install.sh
 sed -i 's/gnome-session/gnome-shell/g' ~/.vnc/xstartup
 ```
 
+3) MacOS theme may not have been applied fully
+
+- <p> Fix 3: Run the following script in ubuntu (or manually change it)</p>
+
+```bash
+wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Themes/fixes/macos-theme-fix.sh
+```
+
+
 ### Third party applications :
 - [Webcord](https://github.com/SpacingBat3/WebCord) MIT license 
 - [Visual Studio Code](https://code.visualstudio.com) 
