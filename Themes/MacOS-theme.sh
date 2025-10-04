@@ -77,31 +77,31 @@ cd
 wget https://github.com/23xvx/Termux-Ubuntu-Installer/raw/main/Themes/macos.zip
 unzip macos.zip 
 rm -rf macos.zip 
-cp  ~/xpple_menu/applications/launchpad.desktop /usr/share/applications/
-mv ~/plank/launchers ~/.config/plank/dock1/
-mv ~/xpple_menu/applications ~/.local/share/
-mv ~/plank/plank.desktop ~/.config/autostart
+cp  ~/macos/xpple_menu/applications/launchpad.desktop /usr/share/applications/
+mv ~/macos/plank/launchers ~/.config/plank/dock1/
+mv ~/macos/xpple_menu/applications ~/.local/share/
+mv ~/macos/plank/plank.desktop ~/.config/autostart
 [[ ! -d "$HOME/.local/share/icons" ]] && {
     mkdir $HOME/.local/share/icons
     cp -r /usr/share/icons/WhiteSur $HOME/.local/share/icons/
 }
-cp ~/plank/rofi/launchpad.svg ~/.local/share/icons/WhiteSur/ 
-mv ~/plank/rofi/style-1.rasi ~/.config/rofi/launchers/type-3/style-1.rasi
-mv ~/plank/rofi/launcher.sh ~/.config/rofi/launchers/type-3/launcher.sh
+cp ~/macos/plank/rofi/launchpad.svg ~/.local/share/icons/WhiteSur/ 
+mv ~/macos/plank/rofi/style-1.rasi ~/.config/rofi/launchers/type-3/style-1.rasi
+mv ~/macos/plank/rofi/launcher.sh ~/.config/rofi/launchers/type-3/launcher.sh
 chmod +x ~/.config/rofi/launchers/type-3/launcher.sh
 vncstart 
 clear 
 sleep 5
-cat ~/plank/dock.ini | dbus-launch dconf load  /net/launchpad/plank/docks/dock1/
+cat ~/macos/plank/dock.ini | dbus-launch dconf load  /net/launchpad/plank/docks/dock1/
 sleep 3 
 vncstop 
 }
 
 Applying_Panel(){
 mkdir -p /usr/share/menus
-mv ~/xpple_menu/xpple.menu /usr/share/menus/
+mv ~/macos/xpple_menu/xpple.menu /usr/share/menus/
 dbus-launch xfconf-query -c xfwm4 -p /general/button_layout -s "CHM|"
-mv ~/panel/config.txt $HOME/
+mv ~/macos/panel/config.txt $HOME/
 tar --sort=name --format ustar -cvjhf ubuntu.tar.bz2 config.txt
 dbus-launch xfce4-panel-profiles load ubuntu.tar.bz2 
 sleep 2
@@ -118,7 +118,7 @@ clear
 
 Remove_File(){
 cd 
-rm -rf plank xpple_menu panel WhiteSur* rofi config.txt ubuntu.tar.bz2 
+rm -rf macos WhiteSur* rofi config.txt ubuntu.tar.bz2 
 clear 
 }
 

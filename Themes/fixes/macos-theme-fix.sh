@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 
 # Some workaround fixes in case the theme hasn't applied fully
+# If needed you can run MacOS-theme.sh manually for better fix
 
 ### FIX appmenu plugin
 cat > ~/.config/gtk-3.0/gtk.css <<- EOF
