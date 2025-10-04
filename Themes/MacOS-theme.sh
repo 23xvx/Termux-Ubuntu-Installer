@@ -107,6 +107,7 @@ dbus-launch xfce4-panel-profiles load ubuntu.tar.bz2
 sleep 2
 vncstop
 # FIX appmenu plugin
+mkdir -p ~/.config/gtk-3.0
 cat > ~/.config/gtk-3.0/gtk.css <<- EOF
 /* appmenu workaround fix */
 .-vala-panel-appmenu-core > * {
