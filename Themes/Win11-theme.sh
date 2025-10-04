@@ -17,12 +17,12 @@ cd Fluent-gtk-theme
 cd 
 
 #extensions
-wget -q --show-progress https://github.com/home-sweet-gnome/dash-to-panel/releases/download/v62/dash-to-panel@jderose9.github.com_v62.zip 
-gnome-extensions install -f -q dash-to-panel@jderose9.github.com_v62.zip
-wget -q --show-progress https://github.com/aunetx/blur-my-shell/releases/download/v67/blur-my-shell@aunetx.shell-extension.zip
+wget -q --show-progress https://github.com/home-sweet-gnome/dash-to-panel/releases/download/v70/dash-to-panel@jderose9.github.com_v69.zip
+gnome-extensions install -f -q dash-to-panel@jderose9.github.com_v69.zip
+wget -q --show-progress https://github.com/aunetx/blur-my-shell/releases/download/v69/blur-my-shell@aunetx.shell-extension.zip
 gnome-extensions install -f -q blur-my-shell@aunetx.shell-extension.zip
-wget -q --show-progress https://extensions.gnome.org/extension-data/arcmenuarcmenu.com.v57.shell-extension.zip
-gnome-extensions install -f -q arcmenuarcmenu.com.v57.shell-extension.zip
+wget -q --show-progress https://extensions.gnome.org/extension-data/arcmenuarcmenu.com.v68.shell-extension.zip
+gnome-extensions install -f -q arcmenuarcmenu.com.v68.shell-extension.zip
 git clone https://github.com/marcinjakubowski/date-menu-formatter
 mv date-menu-formatter .local/share/gnome-shell/extensions/date-menu-formatter@marcinjakubowski.github.com/
 wget -q https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Images/win11.jpg -P /usr/share/pictures/
@@ -66,4 +66,4 @@ dbus-launch gsettings set org.gnome.shell.extensions.date-menu-formatter pattern
 dbus-launch gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/pictures/win11.jpg'
 
 #cleanup
-rm -rf Win11-icon-theme Fluent-gtk-theme dash-to-panel@jderose9.github.com_v62.zip arcmenuarcmenu.com.v57.shell-extension.zip blur-my-shell@aunetx.shell-extension.zip
+rm -rf Win11-icon-theme Fluent-gtk-theme dash-to-panel@jderose9.github.com_v69.zip arcmenuarcmenu.com.v68.shell-extension.zip blur-my-shell@aunetx.shell-extension.zip
