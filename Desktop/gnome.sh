@@ -7,19 +7,18 @@ echo "Please enter your vnc password"
 for file in $(find /usr -type f -iname "*login1*"); do 
     rm -rf $file
 done 
-sleep 4
-vncserver -kill :1
 sleep 2 
+mkdir -p ~/.config/tigervnc/
 echo "
 #!/bin/bash
 export XDG_SESSION_TYPE=x11
 export XDG_CURRENT_DESKTOP=GNOME
 export GNOME_SHELL_SESSION_MODE=ubuntu
 service dbus start
-dbus-launch gnome-session" >> $HOME/.vnc/xstartup
+dbus-launch gnome-session" >> $HOME/.config/tigervnc/xstartup
 echo "vncserver " >> /usr/local/bin/vncstart
 echo "vncserver -kill :* ; rm -rf /tmp/.X1-lock ; rm -rf /tmp/.X11-unix/X1" >> /usr/local/bin/vncstop
-chmod +x $HOME/.vnc/xstartup
+chmod +x $HOME/.config/tigervnc/xstartup
 chmod +x /usr/local/bin/vncstart 
 chmod +x /usr/local/bin/vncstop 
 sleep 2
