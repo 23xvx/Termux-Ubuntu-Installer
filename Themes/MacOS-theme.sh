@@ -67,7 +67,7 @@ mkdir -p ~/.local/share/xfce4-panel-profiles/
 mkdir -p ~/.config/autostart
 mkdir -p ~/.local/share/plank/themes
 mkdir -p ~/.config/plank/dock1/
-cp -r ~/WhiteSur-gtk-theme/src/other/plank/theme-* ~/.local/share/plank/themes
+cp -r ~/WhiteSur-gtk-theme/other/plank/theme-* ~/.local/share/plank/themes
 }
 
 Applying_Plank(){
@@ -87,7 +87,9 @@ mv ~/macos/plank/plank.desktop ~/.config/autostart
 }
 cp ~/macos/plank/rofi/launchpad.svg ~/.local/share/icons/WhiteSur/ 
 mv ~/macos/plank/rofi/style-1.rasi ~/.config/rofi/launchers/type-3/style-1.rasi
-mv ~/macos/plank/rofi/launcher.sh ~/.config/rofi/launchers/type-3/launcher.sh
+# Use script from github instead from macos.zip
+rm -rf ~/.config/rofi/launchers/type-3/launcher.sh
+wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/refs/heads/main/Themes/macos/plank/rofi/launcher.sh -P ~/.config/rofi/launchers/type-3
 chmod +x ~/.config/rofi/launchers/type-3/launcher.sh
 vncstart 
 clear 
