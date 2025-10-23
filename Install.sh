@@ -62,7 +62,7 @@ requirements() {
     echo
 
 
-    # Download scripts for ubuntu noble (if needed)
+    # Download scripts for ubuntu noble (if not existed)
     if [[ ! -f "$PREFIX/etc/proot-distro/$ds_name.sh" ]]; then
         download_script "https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/ubuntu-lts.sh" "$PREFIX/etc/proot-distro/" silence
     fi
@@ -95,7 +95,8 @@ choose_desktop() {
     read desktop
     sleep 1
     case $desktop in
-        1|2|3|4|5|6|7) echo ${G}"Lets start the installation"${Y} ;;
+        1|3|4|6|7) echo ${G}"Lets start the installation"${Y} ;;
+        2|5) echo ${Y}"Gnome is no longer supported..."${Y} ; sleep 2 ; choose_desktop;;
         CLI) echo ${G}"Install raw ubuntu..."${Y} ;;
         *) echo ${R}"Invalid answer"; sleep 1 ; choose_desktop ;;
     esac

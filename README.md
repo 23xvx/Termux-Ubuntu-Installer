@@ -6,6 +6,9 @@ including GNOME , XFCE , MATE , Cinnamon and KDE desktop . </p>
 
 ### Notice : Still fixing bugs !!!!
 
+### UPDATE : 23/10/2025
+### GNOME is no longer supported on ubuntu 24.04+ in proot due to unknown segmentation fault
+
 ### To Do : 
 1) Check bugs in KDE desktop
 2) Add some customizations
@@ -85,3 +88,6 @@ wget https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/Themes
 - Win11 themes https://youtu.be/x7LEHV4LRpU
 - MacOS themes https://youtu.be/xMeeqzoGI_Y
 - Win10 themes https://youtu.be/UZx-F-CSIaw
+
+### Some notes :
+if you really want to try the win11 theme, take a look at my [backup rootfs](https://github.com/23xvx/Termux-Setups/releases/tag/V1)
