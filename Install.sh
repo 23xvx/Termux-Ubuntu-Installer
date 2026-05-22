@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-PD=$PREFIX/var/lib/proot-distro/installed-rootfs
-ds_name=ubuntu-lts
+PD=$PREFIX/var/lib/proot-distro/containers
+ds_name=ubuntu
 
 clear
 
@@ -55,23 +55,12 @@ requirements() {
         echo ${C}"Please allow storage permission"${W}
         termux-setup-storage
     }
-    [[ ! -d "$PREFIX/var/lib/proot-distro" ]] && {
-        mkdir -p $PREFIX/var/lib/proot-distro
-        mkdir -p $PREFIX/var/lib/proot-distro/installed-rootfs
-    }
-    echo
-
-
-    # Download scripts for ubuntu noble (if not existed)
-    if [[ ! -f "$PREFIX/etc/proot-distro/$ds_name.sh" ]]; then
-        download_script "https://raw.githubusercontent.com/23xvx/Termux-Ubuntu-Installer/main/ubuntu-lts.sh" "$PREFIX/etc/proot-distro/" silence
-    fi
 
     [[ -d "$PD/$ds_name" ]] && {
         if ask ${Y}"Existing ubuntu found, remove it?"${W}; then
             echo ""
             echo ${Y}"Deleting existing directory...."${W}
-            proot-distro remove ubuntu-lts || ( echo ${R}"Cannot remove existing directory.." && exit 1 )
+            proot-distro remove ubuntu || ( echo ${R}"Cannot remove existing directory.." && exit 1 )
         else
             echo ${R}"Sorry, but we cannot complete the installation"
             exit 1
@@ -104,7 +93,7 @@ choose_desktop() {
 
 # Install and Setup ubuntu 
 configures() {
-    proot-distro install ubuntu-lts
+    proot-distro install ubuntu:24.04
     echo ${G}"Installing requirements in ubuntu..."${W}
     cat > $PD/$ds_name/root/.bashrc <<- EOF
     apt-get update
@@ -113,7 +102,7 @@ configures() {
     exit
     echo
 EOF
-    proot-distro login ubuntu-lts
+    proot-distro login ubuntu
     rm -rf $PD/$ds_name/root/.bashrc
 }
 
@@ -125,7 +114,7 @@ user() {
         echo ${C}"Please enter a username : "${W}
         read username
         directory=$PD/$ds_name/home/$username
-        login="proot-distro login ubuntu-lts --user $username"
+        login="proot-distro login ubuntu --user $username"
         echo ""
         sleep 1
         echo ${G}"Adding a user ...."
@@ -142,13 +131,13 @@ user() {
         exit
         echo
 EOF
-        proot-distro login ubuntu-lts
+        proot-distro login ubuntu
         rm -rf $PD/$ds_name/root/.bashrc
         sleep 2
         [[ ! -d $directory ]] && {
             echo -e ${R}"Failed to add user\nKeep installation as root"
             directory=$PD/$ds_name/root
-            login="proot-distro login ubuntu-lts"
+            login="proot-distro login ubuntu"
         }
         clear 
     else
@@ -157,7 +146,7 @@ EOF
         sleep 2
         clear
         directory=$PD/$ds_name/root
-        login="proot-distro login ubuntu-lts"
+        login="proot-distro login ubuntu"
     fi 
 }
 
@@ -301,9 +290,9 @@ fixes() {
         --start --load='module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1'  \
         --exit-idle-time=-1" >> $PREFIX/bin/start-ubuntu 
     if [[ -z $username ]]; then
-        echo "proot-distro login ubuntu-lts --shared-tmp" >> $PREFIX/bin/start-ubuntu 
+        echo "proot-distro login ubuntu --shared-tmp" >> $PREFIX/bin/start-ubuntu 
     else
-        echo "proot-distro login ubuntu-lts --shared-tmp --user $username" >> $PREFIX/bin/start-ubuntu
+        echo "proot-distro login ubuntu --shared-tmp --user $username" >> $PREFIX/bin/start-ubuntu
     fi
     chmod +x $PREFIX/bin/start-ubuntu
     [[ ! -f "$directory/.bashrc " ]] && {
